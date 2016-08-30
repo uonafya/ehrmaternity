@@ -1,0 +1,161 @@
+
+<div>
+    <div style="padding-top: 15px;" class="col15 clear">
+        <ul id="left-menu" class="left-menu">
+            <li class="menu-item selected" visitid="54">
+                <span class="menu-date">
+                    <i class="icon-time"></i>
+                    <span id="vistdate">23 May 2016<br> &nbsp; &nbsp; (Active since 04:10 PM)</span>
+                </span>
+
+                <div class="patient-profile">
+
+                </div>
+
+
+
+                <span class="arrow-border"></span>
+                <span class="arrow"></span>
+            </li>
+
+            <li style="height: 30px;" class="menu-item" visitid="53">
+            </li>
+        </ul>
+    </div>
+
+    <div style="min-width: 78%" class="col16 dashboard">
+        <div class="info-section">
+            <form id="antenatal-triage-form">
+                <div class="info-header">
+                    <i class="icon-user-md"></i>
+                    <h3>MATERNAL DETAILS</h3>
+                </div>
+                <div class="info-body" style="margin-bottom: 20px; padding-bottom: 10px;">
+                    <div>
+                        <label for="concept.vaginatestdilationconceptuuid">Vagina Test</label>
+                        <input type="text" id="concept.vaginatestdilationconceptuuid" name="concept.vaginatestdilationconceptuuid" class="number numeric-range" value="">
+                        <span class="append-to-value">Dilation</span>
+                        <span  class="field-error" style="display: none"></span>
+                    </div>
+                    <div>
+                        <label for="concept.fundalheightconceptuuid">Fundal Height</label>
+                        <input type="text" id="concept.fundalheightconceptuuid" name="concept.fundalheightconceptuuid" class="number numeric-range" value="">
+                        <span class="append-to-value">cm</span>
+                        <span  class="field-error" style="display: none"></span>
+                    </div>
+                </div>
+                <div class="info-header">
+                    <i class="icon-diagnosis"></i>
+                    <h3>TRIAGE DETAILS</h3>
+                </div>
+
+                <div class="info-body">
+                    <input type="hidden" name="patientId" value="${patientId}" >
+                    <input type="hidden" name="queueId" value="${queueId}" >
+                    <div>
+                        <label for="concept.5088AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Temperature</label>
+                        <input type="text" id="concept.5088AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" name="concept.5088AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="">
+                        <span class="append-to-value">..&#8451;</span>
+                        <span id="12464" class="field-error" style="display: none"></span>
+                    </div>
+                    <div>
+                        <label for="concept.5089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Weight</label>
+                        <input type="text" id="concept.5089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" name="concept.5089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value=""/>
+                        <span class="append-to-value">Kgs</span>
+                        <span id="12482" class="field-error" style="display: none"></span>
+                    </div>
+                    <div>
+                        <label for="concept.5090AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Height</label>
+                        <input type="text" id="concept.5090AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" name="concept.5090AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value=""/>
+                        <span class="append-to-value">Mtrs</span>
+                        <span id="12483" class="field-error" style="display: none"></span>
+                    </div>
+
+                    <div>
+                        <label for="concept.bloodsugarconceptuuid">Blood Sugar</label>
+                        <input type="text" id="concept.bloodsugarconceptuuid" name="concept.bloodsugarconceptuuid" class="number numeric-range" value="">
+                        <span class="append-to-value">mg/dL</span>
+                        <span  class="field-error" style="display: none"></span>
+                    </div>
+
+                    <div>
+                        <label for="systolic">Blood Pressure</label>
+                        <input type="text" id="systolic" name="concept.6aa7eab2-138a-4041-a87f-00d9421492bc" class="number numeric-range" value=""  />
+                        <span class="append-to-value">Systolic</span>
+                        <span id="12485" class="field-error" style="display: none"></span>
+                    </div>
+
+                    <div>
+                        <label for="diastolic"></label>
+                        <input type="text" id="diastolic" name="concept.5086AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value=""/>
+                        <span class="append-to-value">Diastolic</span>
+                        <span id="12484" class="field-error" style="display: none"></span>
+                    </div>
+
+                    <div>
+                        <label></label>
+                        <label style="padding-left:0px; width: auto;">
+                            <input type="radio" name="send_for_examination" value="11303942-75cd-442a-aead-ae1d2ea9b3eb">
+                            Send to PAC Room
+                        </label>
+                        <label style="padding-left:0px; width: auto;">
+                            <input type="radio" name="send_for_examination" value="4e87c99b-8451-4789-91d8-2aa33fe1e5f6">
+                            Send to Delivery Room
+                        </label>
+                    </div>
+                </div>
+            </form>
+
+            <div>
+                <span class="button submit confirm right" id="antenatalTriageFormSubmitButton" style="margin-top: 10px; margin-right: 50px;">
+                    <i class="icon-save"></i>
+                    Save
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <br style="clear: both">
+</div>
+
+
+<div class="template-holder" style="display:none;">
+    <div class="patient-profile-editor">
+        <div class="info-header">
+            <i class="icon-user-md"></i>
+            <h3>ANTENATAL DETAILS</h3>
+        </div>
+
+        <div class="info-body" style="margin-bottom: 20px; padding-bottom: 10px;">
+            <div>
+                <label for="parity">Parity</label>
+                <input type="text" name="concept.1053AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" id="parity" />
+                <span class="append-to-value">Pregnancies</span>
+            </div>
+
+            <div>
+                <label for="gravidae">Gravida</label>
+                <input type="text" name="concept.5624AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" id="gravida" />
+                <span class="append-to-value">Pregnancies</span>
+            </div>
+
+            <div>
+                ${ui.includeFragment("uicommons", "field/datetimepicker", [formFieldName: 'concept.1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', id: '1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', label: 'L.M.P', useTime: false, defaultToday: false, endDate: new Date(), class: ['searchFieldChange', 'date-pick', 'searchFieldBlur']])}
+            </div>
+
+            <div>
+                ${ui.includeFragment("uicommons", "field/datetimepicker", [formFieldName: 'concept.5596AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', id: '5596AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', label: 'E.D.D', useTime: false, defaultToday: false, class: ['searchFieldChange', 'date-pick', 'searchFieldBlur']])}
+            </div>
+
+            <div>
+                <label for="gestation">Gestation</label>
+                <input type="text" id="gestation">
+                <span class="append-to-value">Weeks</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="">&nbsp;</div>
+

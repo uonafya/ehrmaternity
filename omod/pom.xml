@@ -33,19 +33,23 @@
 		
 				
 		<dependency>
-
 			<groupId>org.openmrs.module</groupId>
-						
 			<artifactId>uiframework-api</artifactId>
-												
 		</dependency>
 		
 		<dependency>
-
 			<groupId>org.openmrs.module</groupId>
-						
 			<artifactId>uicommons-api</artifactId>
-												
+		</dependency>
+
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>hospitalcore-omod</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>hospitalcore-api</artifactId>
 		</dependency>
 
 						
