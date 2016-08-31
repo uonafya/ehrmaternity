@@ -44,6 +44,12 @@
 
 		<dependency>
 			<groupId>org.openmrs.module</groupId>
+			<artifactId>metadatadeploy-api</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
 			<artifactId>hospitalcore-omod</artifactId>
 		</dependency>
 
@@ -56,7 +62,18 @@
 			<groupId>org.openmrs.module</groupId>
 			<artifactId>appframework-api</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>appui-omod</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>mchapp-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>mchapp-omod</artifactId>
+		</dependency>
 						
 		<!-- End OpenMRS modules -->
 		

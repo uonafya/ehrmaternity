@@ -1,4 +1,10 @@
-
+<script>
+    jq(function () {
+        jq("#maternityTriageFormSubmitButton").on("click", function(){
+            jq("#maternity-triage-form").submit();
+        })
+    });
+</script>
 <div>
     <div style="padding-top: 15px;" class="col15 clear">
         <ul id="left-menu" class="left-menu">
@@ -25,21 +31,21 @@
 
     <div style="min-width: 78%" class="col16 dashboard">
         <div class="info-section">
-            <form id="antenatal-triage-form">
+            <form method="post" id="maternity-triage-form">
                 <div class="info-header">
                     <i class="icon-user-md"></i>
                     <h3>MATERNAL DETAILS</h3>
                 </div>
                 <div class="info-body" style="margin-bottom: 20px; padding-bottom: 10px;">
                     <div>
-                        <label for="concept.vaginatestdilationconceptuuid">Vagina Test</label>
-                        <input type="text" id="concept.vaginatestdilationconceptuuid" name="concept.vaginatestdilationconceptuuid" class="number numeric-range" value="">
-                        <span class="append-to-value">Dilation</span>
+                        <label for="concept.15de567e-8112-4895-8f00-b7cb03031928">Vagina Dilation</label>
+                        <input type="text" id="concept.15de567e-8112-4895-8f00-b7cb03031928" name="concept.15de567e-8112-4895-8f00-b7cb03031928" class="number numeric-range" value="">
+                        <span class="append-to-value">cm</span>
                         <span  class="field-error" style="display: none"></span>
                     </div>
                     <div>
-                        <label for="concept.fundalheightconceptuuid">Fundal Height</label>
-                        <input type="text" id="concept.fundalheightconceptuuid" name="concept.fundalheightconceptuuid" class="number numeric-range" value="">
+                        <label for="concept.1439AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Fundal Height</label>
+                        <input type="text" id="concept.1439AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" name="concept.1439AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="">
                         <span class="append-to-value">cm</span>
                         <span  class="field-error" style="display: none"></span>
                     </div>
@@ -72,9 +78,9 @@
                     </div>
 
                     <div>
-                        <label for="concept.bloodsugarconceptuuid">Blood Sugar</label>
-                        <input type="text" id="concept.bloodsugarconceptuuid" name="concept.bloodsugarconceptuuid" class="number numeric-range" value="">
-                        <span class="append-to-value">mg/dL</span>
+                        <label for="concept.167785f7-52e6-46c1-b3a1-0f46e57a2209">Blood Sugar</label>
+                        <input type="text" id="concept.167785f7-52e6-46c1-b3a1-0f46e57a2209" name="concept.167785f7-52e6-46c1-b3a1-0f46e57a2209" class="number numeric-range" value="">
+                        <span class="append-to-value">mmol/L</span>
                         <span  class="field-error" style="display: none"></span>
                     </div>
 
@@ -107,7 +113,7 @@
             </form>
 
             <div>
-                <span class="button submit confirm right" id="antenatalTriageFormSubmitButton" style="margin-top: 10px; margin-right: 50px;">
+                <span class="button submit confirm right" id="maternityTriageFormSubmitButton" style="margin-top: 10px; margin-right: 50px;">
                     <i class="icon-save"></i>
                     Save
                 </span>

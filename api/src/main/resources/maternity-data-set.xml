@@ -1,0 +1,5 @@
+<dataset>
+    <concept concept_id="1744" retired="false" datatype_id="1" class_id="1" is_set="false" creator="1" date_created="2005-01-01 00:00:00.0" uuid="588a31bb-7923-4ef8-a6fc-b8f2ae5d1344"/>
+    <concept_answer concept_answer_id="1744" concept_id="1744" answer_concept="7" creator="1" date_created="2008-08-18 12:34:26.0" uuid="052049fa-a966-4f1a-825c-b5284366b4c2"/>
+    <encounter_type encounter_type_id="6" name="Laboratory" description="Visit to the laboratory" creator="1" date_created="2008-08-15 15:39:55.0" retired="true" retired_by="1" date_retired="2008-08-15 00:00:00.0" retire_reason="for testing" uuid="04b0ac34-6f4f-11e6-8b77-86f30ca893d3"/>
+</dataset>
