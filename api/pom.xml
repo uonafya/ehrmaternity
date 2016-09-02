@@ -28,19 +28,38 @@
 		<!-- Begin OpenMRS modules -->
 				
 		<dependency>
-		
 			<groupId>org.openmrs.module</groupId>
-									
 			<artifactId>uiframework-api</artifactId>
-															
 		</dependency>
 				
 		<dependency>
-		
 			<groupId>org.openmrs.module</groupId>
-									
 			<artifactId>uicommons-api</artifactId>
-															
+		</dependency>
+
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>metadatadeploy-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>metadatasharing-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>hospitalcore-omod</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>hospitalcore-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>mchapp-api</artifactId>
 		</dependency>
 
 
@@ -82,7 +101,12 @@
 			<type>pom</type>
 			<scope>test</scope>
 		</dependency>
-				
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.9.5</version>
+		</dependency>
+
 		<!-- End OpenMRS core -->
 		
 	</dependencies>
