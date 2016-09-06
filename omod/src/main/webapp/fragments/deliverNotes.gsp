@@ -51,42 +51,42 @@
                     <div>
                         <label>Placenta Complete?</label>
                         <label style="padding-left:0px; width: auto;">
-                            <input type="radio" name="" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                            <input type="radio" name="concept.163455AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                             Yes
                         </label>
                         <label style="padding-left:0px; width: auto;">
-                            <input type="radio" name="" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                            <input type="radio" name="concept.163455AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                             No
                         </label>
                     </div>
                     <div>
                         <label for="blood-loss">Blood loss</label>
-                        <input type="text" id="blood-loss" name="" class="number numeric-range" value="">
+                        <input type="text" id="blood-loss" name="concept.161928AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="">
                         <span class="append-to-value">mls</span>
                         <span  class="field-error" style="display: none"></span>
                     </div>
                     <div>
                         <label>Status after Delivery</label>
                         <label style="padding-left:0px; width: auto;">
-                            <input type="radio" name="" value="160429AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                            <input type="radio" name="concept.160085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="160429AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                             Alive
                         </label>
                         <label style="padding-left:0px; width: auto;">
-                            <input type="radio" name="" value="180BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB">
+                            <input type="radio" name="concept.160085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="180BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB">
                             Dead
                         </label>
                     </div>
                     <div>
-                        ${ui.includeFragment("uicommons", "field/datetimepicker", [id: 'death-audit-date', label: 'Date Maternal death audited', formFieldName: 'concept.', useTime: true, defaultToday: true, endToday: true])}>
+                        ${ui.includeFragment("uicommons", "field/datetimepicker", [id: 'death-audit-date', label: 'Date Maternal death audited', formFieldName: 'concept.6bc8d241-3b81-4f45-bf94-2b92ac79e7d1', useTime: true, defaultToday: true, endToday: true])}>
                     </div>
                     <div>
                         <label for="delivery-complications">Delivery complications</label>
-                        <select name="">
+                        <select name="concept.144438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                             <option value="">Please select delivery complications</option>
                             <option value="88286d13-5d65-4ee1-81fa-4a23dc976e07">Antepartum Haemorrhage</option>
                             <option value="37c1d10f-b557-4f76-86d1-69122e2c78c9">Postpartum Haemorrhage</option>
                             <option value="8db88891-e23c-4253-9c2f-7e63259e1e3c">Eclampsia</option>
-                            <option value="">Ruptured Uterus</option>
+                            <option value="127253AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Ruptured Uterus</option>
                             <option value="cdc05740-7d21-4bf3-86b3-ed5c37e1d070">Obstructed labour</option>
                             <option value="8388786c-cd97-4000-91df-b094a2641eac">Sepsis</option>
                         </select>
@@ -116,38 +116,38 @@
                     <div>
                         <label>Initiation of BF within 1 Hour</label>
                         <label style="padding-left:0px; width: auto;">
-                            <input type="radio" name="" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                            <input type="radio" name="concept.161543AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                             Yes
                         </label>
                         <label style="padding-left:0px; width: auto;">
-                            <input type="radio" name="" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                            <input type="radio" name="concept.161543AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                             No
                         </label>
                     </div>
                     <div>
                         <label for="apgar-score">APGAR Score</label>
-                        <input type="text" id="apgar-score" name="" class="number numeric-range" value="">
+                        <input type="text" id="apgar-score" name="concept.1504AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="">
                         <span  class="field-error" style="display: none"></span>
                     </div>
                     <div>
                         <label>Tetracycline at birth</label>
                         <label style="padding-left:0px; width: auto;">
-                            <input type="radio" name="" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                            <input type="radio" name="concept.a5d57f46-369e-4a7a-841f-5e8664fe014f" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                             Yes
                         </label>
                         <label style="padding-left:0px; width: auto;">
-                            <input type="radio" name="" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                            <input type="radio" name="concept.a5d57f46-369e-4a7a-841f-5e8664fe014f" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                             No
                         </label>
                     </div>
                     <div>
                         <label>Birth with deformities</label>
                         <label style="padding-left:0px; width: auto;">
-                            <input type="radio" name="" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                            <input type="radio" name="concept.d702ab4a-cc19-4d8a-b20f-2d481c720e58" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                             Yes
                         </label>
                         <label style="padding-left:0px; width: auto;">
-                            <input type="radio" name="" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                            <input type="radio" name="concept.d702ab4a-cc19-4d8a-b20f-2d481c720e58" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                             No
                         </label>
                     </div>
