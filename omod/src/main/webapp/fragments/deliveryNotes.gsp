@@ -1,72 +1,99 @@
 <script>
+    var NavigatorController;
     jq(function () {
+        NavigatorController = new KeyboardController();
+
         jq("#delivery-form").on("click", function(){
             jq("#delivery-form").submit();
-        })
+        });
+
+        jq("field.patner-results").hide();
+
+        jq(".is-tested").on("click", function() {
+            var value = jq(this).data("value");
+            if (value == "yes") {
+                jq(this).closest("field").next("field.patner-results").show();
+            } else if (value == "no"){
+                jq(this).closest("field").next("field.patner-results").hide();
+            }
+        });
     });
 </script>
 
-<form method="post" id="delivery-form">
-    <input type="hidden" name="patientId" value="${patientId}" >
-    <input type="hidden" name="queueId" value="${queueId}" >
+<form class="simple-form-ui" id="delivery-form">
     <section>
         <span class="title">Delivery Details</span>
-        <fieldset>
+        <input type="hidden" name="patientId" value="${patientId}" >
+        <input type="hidden" name="queueId" value="${queueId}" >
+        <fieldset class="no-confirmation">
             <legend>Mother</legend>
-            <field>
-                <label for="labour-duration">Duration of Labour</label>
-                <input type="text" id="labour-duration" name="" class="number numeric-range" value="">
-                <span class="append-to-value">hrs</span>
-                <span  class="field-error" style="display: none"></span>
-            </field>
-            <field>
-                ${ui.includeFragment("uicommons", "field/datetimepicker", [id: 'delivery-date', label: 'Delivery Date and Time', formFieldName: 'concept.5599AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', useTime: true, defaultToday: true, endToday: true])}>
-            </field>
-            <field>
-                <label>Placenta Complete?</label>
-                <label style="padding-left:0px; width: auto;">
-                    <input type="radio" name="concept.163455AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
-                    Yes
-                </label>
-                <label style="padding-left:0px; width: auto;">
-                    <input type="radio" name="concept.163455AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
-                    No
-                </label>
-            </field>
-            <field>
-                <label for="blood-loss">Blood loss</label>
-                <input type="text" id="blood-loss" name="concept.161928AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="">
-                <span class="append-to-value">mls</span>
-                <span  class="field-error" style="display: none"></span>
-            </field>
-            <field>
-                <label>Status after Delivery</label>
-                <label style="padding-left:0px; width: auto;">
-                    <input type="radio" name="concept.160085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="160429AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
-                    Alive
-                </label>
-                <label style="padding-left:0px; width: auto;">
-                    <input type="radio" name="concept.160085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="180BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB">
-                    Dead
-                </label>
-            </field>
-            <field>
-                ${ui.includeFragment("uicommons", "field/datetimepicker", [id: 'death-audit-date', label: 'Date Maternal death audited', formFieldName: 'concept.6bc8d241-3b81-4f45-bf94-2b92ac79e7d1', useTime: true, defaultToday: true, endToday: true])}>
-            </field>
-            <field>
-                <label for="delivery-complications">Delivery complications</label>
-                <select name="concept.144438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
-                    <option value="">Please select delivery complications</option>
-                    <option value="88286d13-5d65-4ee1-81fa-4a23dc976e07">Antepartum Haemorrhage</option>
-                    <option value="37c1d10f-b557-4f76-86d1-69122e2c78c9">Postpartum Haemorrhage</option>
-                    <option value="8db88891-e23c-4253-9c2f-7e63259e1e3c">Eclampsia</option>
-                    <option value="127253AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Ruptured Uterus</option>
-                    <option value="cdc05740-7d21-4bf3-86b3-ed5c37e1d070">Obstructed labour</option>
-                    <option value="8388786c-cd97-4000-91df-b094a2641eac">Sepsis</option>
-                </select>
-            </field>
+            <div>
+                <field>
+                    <label for="labour-duration">Duration of Labour</label>
+                    <input type="text" id="labour-duration" name="" class="number numeric-range" value="">
+                    <span class="append-to-value">hrs</span>
+                    <span  class="field-error" style="display: none"></span>
+                </field>
+            </div>
+            <div>
+                <field>
+                    ${ui.includeFragment("uicommons", "field/datetimepicker", [id: 'delivery-date', label: 'Delivery Date and Time', formFieldName: 'concept.5599AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', useTime: true, defaultToday: true, endToday: true])}
+                </field>
+            </div>
+            <div>
+                <field>
+                    <label>Placenta Complete?</label>
+                    <label style="padding-left:0px; width: auto;">
+                        <input type="radio" name="concept.163455AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                        Yes
+                    </label>
+                    <label style="padding-left:0px; width: auto;">
+                        <input type="radio" name="concept.163455AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                        No
+                    </label>
+                </field>
+            </div>
+            <div>
+                <field>
+                    <label for="blood-loss">Blood loss</label>
+                    <input type="text" id="blood-loss" name="concept.161928AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="">
+                    <span class="append-to-value">mls</span>
+                    <span  class="field-error" style="display: none"></span>
+                </field>
+            <div>
+                <field>
+                    <label>Status after Delivery</label>
+                    <label style="padding-left:0px; width: auto;">
+                        <input type="radio" name="concept.160085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="160429AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                        Alive
+                    </label>
+                    <label style="padding-left:0px; width: auto;">
+                        <input type="radio" name="concept.160085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="180BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB">
+                        Dead
+                    </label>
+                </field>
+            </div>
+            <div>
+                <field>
+                    ${ui.includeFragment("uicommons", "field/datetimepicker", [id: 'death-audit-date', label: 'Date Maternal death audited', formFieldName: 'concept.6bc8d241-3b81-4f45-bf94-2b92ac79e7d1', useTime: true, defaultToday: true, endToday: true])}
+                </field>
+            </div>
+            <div>
+                <field>
+                    <label for="delivery-complications">Delivery complications</label>
+                    <select name="concept.144438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                        <option value="">Please select delivery complications</option>
+                        <option value="88286d13-5d65-4ee1-81fa-4a23dc976e07">Antepartum Haemorrhage</option>
+                        <option value="37c1d10f-b557-4f76-86d1-69122e2c78c9">Postpartum Haemorrhage</option>
+                        <option value="8db88891-e23c-4253-9c2f-7e63259e1e3c">Eclampsia</option>
+                        <option value="127253AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Ruptured Uterus</option>
+                        <option value="cdc05740-7d21-4bf3-86b3-ed5c37e1d070">Obstructed labour</option>
+                        <option value="8388786c-cd97-4000-91df-b094a2641eac">Sepsis</option>
+                    </select>
+                </field>
+             </div>
         </fieldset>
-        <fieldset>
+        <fieldset class="no-confirmation">
             <legend>Baby</legend>
             <field>
                 <label>Status</label>
@@ -130,7 +157,7 @@
     </section>
     <section>
         <span class="title">Addition Info</span>
-        <fieldset>
+        <fieldset class="no-confirmation">
             <legend>PMTCT Information</legend>
             <field>
                 <div>Prior Known Status</div>
@@ -161,15 +188,15 @@
             <field>
                 <div>Patner Tested?</div>
                 <label>
-                    <input id="" type="radio" data-value="Yes" name="concept.93366255-8903-44af-8370-3b68c0400930" value="4536f271-5430-4345-b5f7-37ca4cfe1553">
+                    <input class="is-tested" data-value="yes" type="radio" data-value="Yes" name="concept.93366255-8903-44af-8370-3b68c0400930" value="4536f271-5430-4345-b5f7-37ca4cfe1553">
                     Yes
                 </label>
                 <label>
-                    <input id="" type="radio" data-value="No" name="concept.93366255-8903-44af-8370-3b68c0400930" value="606720bb-4a7a-4c4c-b3b5-9a8e910758c9">
+                    <input class="is-tested" data-value="no" type="radio" data-value="No" name="concept.93366255-8903-44af-8370-3b68c0400930" value="606720bb-4a7a-4c4c-b3b5-9a8e910758c9">
                     No
                 </label>
             </field>
-            <field>
+            <field class="patner-results">
                 <div>Patner Results</div>
                 <label>
                     <input id="prior-status-positive" type="radio" data-value="Positive" name="concept.df68a879-70c4-40d5-becc-a2679b174036" value="7480ebef-125b-4e0d-a8e5-256224ee31a0">
@@ -186,7 +213,7 @@
                 </label>
             </field>
         </fieldset>
-        <fieldset>
+        <fieldset class="no-confirmation">
             <legend>Treatment</legend>
             <field>
                 <label>Counselled on feeding options?</label>
@@ -212,4 +239,21 @@
             </field>
         </fieldset>
     </section>
+    <div id="confirmation" style="width:74.6%; min-height: 400px;">
+        <span id="confirmation_label" class="title">Confirmation</span>
+        <div id="confirmationQuestion" class="focused" style="margin-top:20px">
+            <field style="display: inline">
+                <button class="button submit confirm" style="display: none;"></button>
+            </field>
+            <span value="Submit" class="button submit confirm" >
+                <i class="icon-save small"></i>
+                Save
+            </span>
+            
+            <span class="button cancel">
+                <i class="icon-remove small"></i>
+                Cancel
+            </span>
+        </div>
+    </div>
 </form>
