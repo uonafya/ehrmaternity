@@ -104,12 +104,16 @@
                     <div>
                         <label></label>
                         <label style="padding-left:0px; width: auto;">
-                            <input type="radio" name="send_for_examination" value="11303942-75cd-442a-aead-ae1d2ea9b3eb">
+                            <input type="radio" name="send_for_examination" value="2d32b641-83ea-4cb5-be77-bc2b5c250b66">
                             Send to PAC Room
                         </label>
                         <label style="padding-left:0px; width: auto;">
-                            <input type="radio" name="send_for_examination" value="4e87c99b-8451-4789-91d8-2aa33fe1e5f6">
+                            <input type="radio" name="send_for_examination" value="daea450b-4c2c-49ea-a241-afa152b52145">
                             Send to Delivery Room
+                        </label>
+                        <label style="padding-left:0px; width: auto;">
+                            <input type="radio" name="send_for_examination" value="7bda0f2c-585d-4671-8917-2c847f68d11b">
+                            Send to Maternity Ward
                         </label>
                     </div>
                 </div>
