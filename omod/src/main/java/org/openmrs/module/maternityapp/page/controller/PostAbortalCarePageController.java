@@ -1,6 +1,5 @@
 package org.openmrs.module.maternityapp.page.controller;
 
-import org.openmrs.Concept;
 import org.openmrs.Encounter;
 import org.openmrs.Patient;
 import org.openmrs.api.context.Context;
@@ -11,22 +10,17 @@ import org.openmrs.module.hospitalcore.model.OpdPatientQueue;
 import org.openmrs.module.maternityapp.MaternityMetadata;
 import org.openmrs.module.maternityapp.api.MaternityService;
 import org.openmrs.module.mchapp.InternalReferral;
-import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
 import org.openmrs.module.mchapp.api.parsers.QueueLogs;
 import org.openmrs.ui.framework.UiUtils;
 import org.openmrs.ui.framework.page.PageModel;
 import org.openmrs.ui.framework.page.PageRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.expression.ParseException;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 /**
- * Created by franqq on 8/30/16.
+ * Created by franqq on 9/8/16.
  */
-public class TriagePageController {
+public class PostAbortalCarePageController {
     public void get(
             @RequestParam("patientId") Patient patient,
             @RequestParam(value = "queueId") Integer queueId,
@@ -45,11 +39,11 @@ public class TriagePageController {
         model.addAttribute("previousVisit", hospitalCoreService.getLastVisitTime(patient));
         model.addAttribute("patientCategory", patient.getAttribute(14));
         model.addAttribute("patientId", patient.getPatientId());
-        model.addAttribute("title","Maternity Triage");
+        model.addAttribute("title","Post Abortal Care");
 
     }
 
-   public String post(
+    public String post(
             @RequestParam("patientId") Patient patient,
             @RequestParam("queueId") Integer queueId,
             PageRequest request,
@@ -67,6 +61,6 @@ public class TriagePageController {
         } catch (java.text.ParseException e) {
             e.printStackTrace();
         }
-       return "redirect:" + ui.pageLinkWithoutContextPath("patientqueueapp", "maternityTriageQueue", null);
+        return "redirect:" + ui.pageLinkWithoutContextPath("patientqueueapp", "pacRoomQueue", null);
     }
 }
