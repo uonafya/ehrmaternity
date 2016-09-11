@@ -3,7 +3,7 @@
     jq(function () {
         NavigatorController = new KeyboardController();
 
-        jq("#delivery-form").on("click", function(){
+        jq("#delivery-form-submit").on("click", function(){
             jq("#delivery-form").submit();
         });
 
@@ -238,6 +238,15 @@
                 </label>
             </field>
         </fieldset>
+        <fieldset>
+            <legend>Referral Information</legend>
+
+            <field>
+                <input type="hidden" id="referral-set" class=""/>
+                <span id="referral-lbl" class="field-error" style="display: none"></span>
+            </field>
+             ${ui.includeFragment("maternityapp", "refferalInformation")}
+        </fieldset>
     </section>
     <div id="confirmation" style="width:74.6%; min-height: 400px;">
         <span id="confirmation_label" class="title">Confirmation</span>
@@ -245,7 +254,7 @@
             <field style="display: inline">
                 <button class="button submit confirm" style="display: none;"></button>
             </field>
-            <span value="Submit" class="button submit confirm" >
+            <span value="Submit" id="delivery-form-submit" class="button submit confirm" >
                 <i class="icon-save small"></i>
                 Save
             </span>

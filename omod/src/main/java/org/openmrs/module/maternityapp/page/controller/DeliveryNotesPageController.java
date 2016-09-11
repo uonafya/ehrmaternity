@@ -9,9 +9,13 @@ import org.openmrs.module.hospitalcore.PatientQueueService;
 import org.openmrs.module.hospitalcore.model.OpdPatientQueue;
 import org.openmrs.module.maternityapp.MaternityMetadata;
 import org.openmrs.module.maternityapp.api.MaternityService;
+import org.openmrs.module.mchapp.InternalReferral;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
 import org.openmrs.module.mchapp.api.parsers.QueueLogs;
+import org.openmrs.module.patientdashboardapp.model.Referral;
+import org.openmrs.module.patientdashboardapp.model.ReferralReasons;
+import org.openmrs.ui.framework.SimpleObject;
 import org.openmrs.ui.framework.UiUtils;
 import org.openmrs.ui.framework.page.PageModel;
 import org.openmrs.ui.framework.page.PageRequest;
@@ -28,7 +32,8 @@ public class DeliveryNotesPageController {
     public void get(
             @RequestParam("patientId") Patient patient,
             @RequestParam(value = "queueId") Integer queueId,
-            PageModel model) {
+            PageModel model,
+            UiUtils ui) {
         model.addAttribute("patient", patient);
 
         model.addAttribute("queueId", queueId);
@@ -43,7 +48,11 @@ public class DeliveryNotesPageController {
         model.addAttribute("previousVisit", hospitalCoreService.getLastVisitTime(patient));
         model.addAttribute("patientCategory", patient.getAttribute(14));
         model.addAttribute("patientId", patient.getPatientId());
-        model.addAttribute("title","Maternity Triage");
+        model.addAttribute("title","Delivery Notes");
+        model.addAttribute("internalReferrals", SimpleObject.fromCollection(Referral.getInternalReferralOptions(), ui, "label", "id", "uuid"));
+        model.addAttribute("externalReferrals", SimpleObject.fromCollection(Referral.getExternalReferralOptions(), ui, "label", "id", "uuid"));
+        model.addAttribute("referralReasons", SimpleObject.fromCollection(ReferralReasons.getReferralReasonsOptions(), ui, "label", "id", "uuid"));
+
 
     }
 
@@ -58,6 +67,11 @@ public class DeliveryNotesPageController {
             ClinicalForm form = ClinicalForm.generateForm(request.getRequest(), patient, null);
             String encounterType = MaternityMetadata._MaternityEncounterType.MATERNITY_ENCOUNTER_TYPE;
             Encounter encounter = Context.getService(MaternityService.class).saveMaternityEncounter(form, encounterType, session.getSessionLocation());
+            InternalReferral internalReferral = new InternalReferral();
+            String refferedRoomUuid = request.getRequest().getParameter("internalRefferal");
+            if (refferedRoomUuid != "" && refferedRoomUuid != null && !refferedRoomUuid.equals(0) && !refferedRoomUuid.equals("0")) {
+                internalReferral.sendToRefferedRoom(patient, refferedRoomUuid);
+            }
             QueueLogs.logOpdPatient(patientQueue, encounter);
         } catch (java.text.ParseException e) {
             e.printStackTrace();
