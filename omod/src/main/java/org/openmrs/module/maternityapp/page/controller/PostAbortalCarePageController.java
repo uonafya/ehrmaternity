@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * Created by franqq on 9/8/16.
  */
+
 public class PostAbortalCarePageController {
     public void get(
             @RequestParam("patientId") Patient patient,
