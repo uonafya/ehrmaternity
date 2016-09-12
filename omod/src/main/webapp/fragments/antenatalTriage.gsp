@@ -2,7 +2,40 @@
     jq(function () {
         jq("#maternityTriageFormSubmitButton").on("click", function(){
             jq("#maternity-triage-form").submit();
-        })
+        });
+		
+		jq("form").on("change", "#1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", function(e){
+            calculateExpectedDeliveryDate();
+            calculateGestationInWeeks();
+        });
+
+        jq("form").on("change", "#gestation", function(e) {
+            var gestationPeriod = jq(this).val();			
+			if (!jq.isNumeric(gestationPeriod)){
+				alert('Invalid');
+				return false;
+			}
+			
+            var lastMenstrualPeriod = moment().add(-gestationPeriod, "weeks");
+			
+            jq('#1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-field', document.forms[0]).val(lastMenstrualPeriod.format('YYYY-MM-DD'));
+            jq('#1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-display', document.forms[0]).val(lastMenstrualPeriod.format('DD MMM YYYY'));
+            jq("#1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA").change();
+        });
+
+        function calculateExpectedDeliveryDate() {
+            var lastMenstrualPeriod = jq("#1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-field", document.forms[0]).val();
+            var expectedDate = moment(lastMenstrualPeriod, "YYYY-MM-DD").add(280, "days");
+            jq('#5596AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-field', document.forms[0]).val(expectedDate.format('YYYY-MM-DD'));
+            jq('#5596AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-display', document.forms[0]).val(expectedDate.format('DD MMM YYYY'));
+        }
+
+        function calculateGestationInWeeks(){
+            var lastMenstrualPeriod = moment(jq("#1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-field", document.forms[0]).val(), "YYYY-MM-DD");
+            var expectedDate = moment();
+            var gestationInWeeks = Math.round(moment.duration(expectedDate.diff(lastMenstrualPeriod)).asWeeks());
+            jq('#gestation', document.forms[0]).val(gestationInWeeks);
+        }
     });
 </script>
 <div>

@@ -1,8 +1,6 @@
 package org.openmrs.module.maternityapp.page.controller;
 
-import org.openmrs.Concept;
-import org.openmrs.Encounter;
-import org.openmrs.Patient;
+import org.openmrs.*;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.appui.UiSessionContext;
 import org.openmrs.module.hospitalcore.HospitalCoreService;
@@ -11,15 +9,14 @@ import org.openmrs.module.hospitalcore.model.OpdPatientQueue;
 import org.openmrs.module.maternityapp.MaternityMetadata;
 import org.openmrs.module.maternityapp.api.MaternityService;
 import org.openmrs.module.mchapp.InternalReferral;
+import org.openmrs.module.mchapp.MchMetadata;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
 import org.openmrs.module.mchapp.api.parsers.QueueLogs;
+import org.openmrs.module.mchapp.fragment.controller.PatientProfileGenerator;
 import org.openmrs.ui.framework.UiUtils;
 import org.openmrs.ui.framework.page.PageModel;
 import org.openmrs.ui.framework.page.PageRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.expression.ParseException;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -32,7 +29,6 @@ public class TriagePageController {
             @RequestParam(value = "queueId") Integer queueId,
             PageModel model) {
         model.addAttribute("patient", patient);
-
         model.addAttribute("queueId", queueId);
 
         if (patient.getGender().equals("M")) {
@@ -42,6 +38,13 @@ public class TriagePageController {
         }
 
         HospitalCoreService hospitalCoreService = Context.getService(HospitalCoreService.class);
+        MchService mchService = Context.getService(MchService.class);
+
+        boolean enrolledInANC = mchService.enrolledInANC(patient);
+
+        model.addAttribute("patientProfile", PatientProfileGenerator.generatePatientProfile(patient, MchMetadata._MchProgram.ANC_PROGRAM));
+
+        model.addAttribute("enrolledInAnc", enrolledInANC);
         model.addAttribute("previousVisit", hospitalCoreService.getLastVisitTime(patient));
         model.addAttribute("patientCategory", patient.getAttribute(14));
         model.addAttribute("patientId", patient.getPatientId());
