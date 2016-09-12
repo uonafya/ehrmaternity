@@ -1,11 +1,12 @@
 package org.openmrs.module.maternityapp.page.controller;
 
-import org.openmrs.*;
+import org.openmrs.Encounter;
+import org.openmrs.Patient;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.appui.UiSessionContext;
 import org.openmrs.module.hospitalcore.HospitalCoreService;
 import org.openmrs.module.hospitalcore.PatientQueueService;
-import org.openmrs.module.hospitalcore.model.OpdPatientQueue;
+import org.openmrs.module.hospitalcore.model.TriagePatientQueue;
 import org.openmrs.module.maternityapp.MaternityMetadata;
 import org.openmrs.module.maternityapp.api.MaternityService;
 import org.openmrs.module.mchapp.InternalReferral;
@@ -60,14 +61,14 @@ public class TriagePageController {
             UiSessionContext session,
             UiUtils ui) {
         try {
-            OpdPatientQueue patientQueue = Context.getService(PatientQueueService.class).getOpdPatientQueueById(queueId);
+            TriagePatientQueue patientQueue = Context.getService(PatientQueueService.class).getTriagePatientQueueById(queueId);
             ClinicalForm form = ClinicalForm.generateForm(request.getRequest(), patient, null);
             String encounterType = MaternityMetadata._MaternityEncounterType.MATERNITY_ENCOUNTER_TYPE;
             Encounter encounter = Context.getService(MaternityService.class).saveMaternityEncounter(form, encounterType, session.getSessionLocation());
             String nextRoomConceptUuid = request.getRequest().getParameter("send_for_examination");
             InternalReferral internalReferral = new InternalReferral();
             internalReferral.sendToRefferedRoom(patient,nextRoomConceptUuid);
-            QueueLogs.logOpdPatient(patientQueue, encounter);
+            QueueLogs.logTriagePatient(patientQueue, encounter);
         } catch (java.text.ParseException e) {
             e.printStackTrace();
         }
