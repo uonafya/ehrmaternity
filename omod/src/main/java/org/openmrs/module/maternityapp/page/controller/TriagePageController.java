@@ -43,6 +43,7 @@ public class TriagePageController {
         boolean enrolledInANC = mchService.enrolledInANC(patient);
 
         model.addAttribute("patientProfile", PatientProfileGenerator.generatePatientProfile(patient, MchMetadata._MchProgram.ANC_PROGRAM));
+        model.addAttribute("patientHistoricalProfile", PatientProfileGenerator.generateHistoricalPatientProfile(patient, MchMetadata._MchProgram.ANC_PROGRAM));
 
         model.addAttribute("enrolledInAnc", enrolledInANC);
         model.addAttribute("previousVisit", hospitalCoreService.getLastVisitTime(patient));

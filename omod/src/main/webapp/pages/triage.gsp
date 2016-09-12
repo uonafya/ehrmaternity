@@ -112,8 +112,8 @@
 	.col15 {
 		display: inline-block;
 		float: left;
-		max-width: 22%;
-		min-width: 22%;
+		max-width: 23%;
+		min-width: 23%;
 	}
 
 	.col16 {
@@ -142,7 +142,7 @@
 
 	.menu-title span {
 		display: inline-block;
-		width: 65px;
+		width: 75px;
 	}
 
 	span a:hover {
@@ -161,7 +161,7 @@
 	.form input,
 	.form textarea {
 		display: inline-block;
-		min-width: 73%;
+		min-width: 75%;
 	}
 
 	form select,
@@ -189,6 +189,19 @@
 	#modal-overlay {
 		background: #000 none repeat scroll 0 0;
 		opacity: 0.4 !important;
+	}
+	ul.left-menu li {
+		width: 200px;
+	}	
+	.dashboard .info-header h3 {
+		color: #f26522;
+	}
+	form input[type="radio"] {
+		cursor: pointer;
+		margin: 4px 5px 0 0;
+		-webkit-appearance: checkbox;
+		-moz-appearance: checkbox;
+		-ms-appearance: checkbox;
 	}
 </style>
 
