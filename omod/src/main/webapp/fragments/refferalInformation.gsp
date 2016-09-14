@@ -109,3 +109,15 @@
             <textarea id="comments" name="comment.18b2b617-1631-457f-a36b-e593d948707f" style="width: 95.7%; resize: none;"></textarea>
         </div>
     </div>
+
+<div class="label title-label" style="width: auto; border-bottom: 1px solid rgb(221, 221, 221); padding: 20px 0px 2px 10px;">Status of the Baby</span></div>
+<select id="babyStatus" name="concept.159926AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+    <option value="0">Select Baby Status</option>
+    <% if (babyStatusList != null || babyStatusList != "") { %>
+        <% babyStatusList.each { babyStatus -> %>
+            <option value="babyStatusList.uuid">babyStatusList.label</option>
+        <%}%>
+    <%}%>
+</select>
+<div class="label title-label" style="width: auto; border-bottom: 1px solid rgb(221, 221, 221); padding: 20px 0px 2px 10px;">Discharge date</span></div>
+${ui.includeFragment("uicommons", "field/datetimepicker", [formFieldName: 'concept.1641AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', id: '1641AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', label: 'Date', useTime: false, defaultToday: false, endDate: new Date(), class: ['searchFieldChange', 'date-pick', 'searchFieldBlur']])}

@@ -239,7 +239,7 @@
             </field>
         </fieldset>
         <fieldset>
-            <legend>Referral Information</legend>
+            <legend>Outcome</legend>
 
             <field>
                 <input type="hidden" id="referral-set" class=""/>

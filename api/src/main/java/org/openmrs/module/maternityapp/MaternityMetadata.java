@@ -14,6 +14,9 @@ public class MaternityMetadata extends AbstractMetadataBundle {
     public static final class _MaternityEncounterType {
         public static final String MATERNITY_ENCOUNTER_TYPE = "04b0ac34-6f4f-11e6-8b77-86f30ca893d3";
     }
+    public static final class _MaternityConcepts{
+        public static final String BABY_OUTCOME_STATUS_UUID = "159926AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+    }
     @Override
     public void install() throws Exception {
         install(encounterType("Maternity", "Maternity Clinic", _MaternityEncounterType.MATERNITY_ENCOUNTER_TYPE));

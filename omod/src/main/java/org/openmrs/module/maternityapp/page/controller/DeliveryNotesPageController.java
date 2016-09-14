@@ -1,5 +1,8 @@
 package org.openmrs.module.maternityapp.page.controller;
 
+import org.openmrs.Concept;
+import org.openmrs.ConceptAnswer;
+import org.openmrs.ConceptClass;
 import org.openmrs.Encounter;
 import org.openmrs.Patient;
 import org.openmrs.api.context.Context;
@@ -23,6 +26,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.expression.ParseException;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 
 /**
@@ -52,7 +59,7 @@ public class DeliveryNotesPageController {
         model.addAttribute("internalReferrals", SimpleObject.fromCollection(Referral.getInternalReferralOptions(), ui, "label", "id", "uuid"));
         model.addAttribute("externalReferrals", SimpleObject.fromCollection(Referral.getExternalReferralOptions(), ui, "label", "id", "uuid"));
         model.addAttribute("referralReasons", SimpleObject.fromCollection(ReferralReasons.getReferralReasonsOptions(), ui, "label", "id", "uuid"));
-
+        model.addAttribute("babyStatusList",this.babyOutcomeStatus(ui));
 
     }
 
@@ -77,5 +84,15 @@ public class DeliveryNotesPageController {
             e.printStackTrace();
         }
        return "redirect:" + ui.pageLinkWithoutContextPath("patientqueueapp", "maternityClinicQueue", null);
+    }
+
+    private List<SimpleObject> babyOutcomeStatus(UiUtils ui)
+    {
+        Collection<ConceptAnswer> babyOutcomes = new ArrayList<ConceptAnswer>();
+        List<SimpleObject> babyOutcomesSimpleObject = new ArrayList<SimpleObject>();
+        Concept babyOutcomeConcept = Context.getConceptService().getConceptByUuid(MaternityMetadata._MaternityConcepts.BABY_OUTCOME_STATUS_UUID);
+        babyOutcomes = babyOutcomeConcept.getAnswers();
+        babyOutcomesSimpleObject = SimpleObject.fromCollection(babyOutcomes, ui, "label", "id", "uuid");
+        return babyOutcomesSimpleObject;
     }
 }
