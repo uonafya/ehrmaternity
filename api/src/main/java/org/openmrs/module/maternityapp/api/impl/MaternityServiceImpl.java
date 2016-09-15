@@ -5,6 +5,9 @@ import org.openmrs.EncounterType;
 import org.openmrs.Location;
 import org.openmrs.Obs;
 import org.openmrs.api.context.Context;
+import org.openmrs.module.hospitalcore.IpdService;
+import org.openmrs.module.hospitalcore.model.IpdPatientAdmission;
+import org.openmrs.module.maternityapp.MaternityMetadata;
 import org.openmrs.module.maternityapp.api.MaternityService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
 
@@ -36,5 +39,26 @@ public class MaternityServiceImpl implements MaternityService {
         maternityEncounter= Context.getEncounterService().saveEncounter(maternityEncounter);
 
         return maternityEncounter;
+    }
+    public void admitPatientToMaternityWard(Encounter encounter){
+        IpdPatientAdmission patientAdmission = new IpdPatientAdmission();
+        patientAdmission.setAdmissionDate(encounter.getEncounterDatetime());
+        patientAdmission.setAdmissionWard(Context.getConceptService().getConceptByUuid(MaternityMetadata._MaternityConcepts.MATERNITY_WARD_CONCEPT_UUID));
+        patientAdmission.setBirthDate(encounter.getPatient().getBirthdate());
+        patientAdmission.setGender(encounter.getPatient().getGender());
+        patientAdmission.setOpdAmittedUser(encounter.getCreator());
+        patientAdmission.setPatient(encounter.getPatient());
+        patientAdmission.setPatientIdentifier(encounter.getPatient()
+                .getPatientIdentifier().getIdentifier());
+        if (encounter.getPatient().getMiddleName() != null) {
+            patientAdmission.setPatientName(encounter.getPatient().getGivenName()
+                    + " " + encounter.getPatient().getFamilyName() + " "
+                    + encounter.getPatient().getMiddleName().replace(",", " "));
+        } else {
+            patientAdmission.setPatientName(encounter.getPatient().getGivenName()
+                    + " " + encounter.getPatient().getFamilyName());
+        }
+        patientAdmission.setAcceptStatus(0);
+        Context.getService(IpdService.class).saveIpdPatientAdmission(patientAdmission);
     }
 }

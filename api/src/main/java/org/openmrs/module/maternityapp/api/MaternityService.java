@@ -11,4 +11,5 @@ public interface MaternityService {
     Encounter saveMaternityEncounter(ClinicalForm form, String encounterType,
                                Location location);
 
+    void admitPatientToMaternityWard(Encounter encounter);
 }
