@@ -115,7 +115,7 @@
     <option value="0">Select Baby Status</option>
     <% if (babyStatusList != null || babyStatusList != "") { %>
         <% babyStatusList.each { babyStatus -> %>
-            <option value="babyStatusList.uuid">babyStatusList.label</option>
+            <option value="${babyStatus.answerConcept.uuid}">${babyStatus.answerConcept.name}</option>
         <%}%>
     <%}%>
 </select>

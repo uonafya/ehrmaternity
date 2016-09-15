@@ -59,7 +59,7 @@ public class DeliveryNotesPageController {
         model.addAttribute("internalReferrals", SimpleObject.fromCollection(Referral.getInternalReferralOptions(), ui, "label", "id", "uuid"));
         model.addAttribute("externalReferrals", SimpleObject.fromCollection(Referral.getExternalReferralOptions(), ui, "label", "id", "uuid"));
         model.addAttribute("referralReasons", SimpleObject.fromCollection(ReferralReasons.getReferralReasonsOptions(), ui, "label", "id", "uuid"));
-        model.addAttribute("babyStatusList",this.babyOutcomeStatus(ui));
+        model.addAttribute("babyStatusList",this.babyOutcomeStatus());
 
     }
 
@@ -86,13 +86,11 @@ public class DeliveryNotesPageController {
        return "redirect:" + ui.pageLinkWithoutContextPath("patientqueueapp", "maternityClinicQueue", null);
     }
 
-    private List<SimpleObject> babyOutcomeStatus(UiUtils ui)
+    private Collection<ConceptAnswer> babyOutcomeStatus()
     {
         Collection<ConceptAnswer> babyOutcomes = new ArrayList<ConceptAnswer>();
-        List<SimpleObject> babyOutcomesSimpleObject = new ArrayList<SimpleObject>();
         Concept babyOutcomeConcept = Context.getConceptService().getConceptByUuid(MaternityMetadata._MaternityConcepts.BABY_OUTCOME_STATUS_UUID);
         babyOutcomes = babyOutcomeConcept.getAnswers();
-        babyOutcomesSimpleObject = SimpleObject.fromCollection(babyOutcomes, ui, "label", "id", "uuid");
-        return babyOutcomesSimpleObject;
+        return babyOutcomes;
     }
 }
