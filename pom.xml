@@ -119,6 +119,12 @@
 				<version>1.0.3-SNAPSHOT</version>
 				<scope>provided</scope>
 			</dependency>
+			<dependency>
+				<groupId>org.openmrs.module</groupId>
+				<artifactId>patientdashboardapp-api</artifactId>
+				<version>1.2-SNAPSHOT</version>
+				<scope>provided</scope>
+			</dependency>
 
 						
 			<!-- End OpenMRS modules -->
