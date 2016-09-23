@@ -42,6 +42,18 @@
             </div>
             <div>
                 <field>
+                    <label for="delivery-mode">Mode of Deliver</label>
+                    <select name="concept.a875ae0b-893c-47f8-9ebe-f721c8d0b130">
+                        <option value="">Please mode of delivery</option>
+                        <option value="9cbf6218-ae7a-476d-8322-0cb91f48c6c6">Normal Deliver</option>
+                        <option value="1dbf27fb-c989-4015-b0f7-8ab5b6631005">Caeserean Section</option>
+                        <option value="c81f4f5f-b62e-44c0-9485-bfe5d778a1a6">Breech</option>
+                        <option value="0bd246e3-d4aa-4681-9136-e0b35e8162ec">Assisted vaginal delivery</option>
+                    </select>
+                </field>
+             </div>
+            <div>
+                <field>
                     <label>Placenta Complete?</label>
                     <label style="padding-left:0px; width: auto;">
                         <input type="radio" name="concept.163455AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
