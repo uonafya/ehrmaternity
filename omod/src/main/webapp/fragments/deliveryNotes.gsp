@@ -240,7 +240,14 @@
         </fieldset>
         <fieldset>
             <legend>Outcome</legend>
-
+            <field>
+                <label for="baby-status">Status of Baby</label>
+                    <select name="concept.159926AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                        <option value="">Please select status of baby</option>
+                        <option value="160429AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Alive</option>
+                        <option value="159AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Dead</option>
+                    </select>
+            </field>
             <field>
                 <input type="hidden" id="referral-set" class=""/>
                 <span id="referral-lbl" class="field-error" style="display: none"></span>
