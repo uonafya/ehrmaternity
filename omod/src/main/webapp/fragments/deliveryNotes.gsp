@@ -4,7 +4,6 @@
         NavigatorController = new KeyboardController();
 
         jq("#delivery-form-submit").on("click", function(){
-			alert('Submit');
             jq("#delivery-form").submit();
         });
 

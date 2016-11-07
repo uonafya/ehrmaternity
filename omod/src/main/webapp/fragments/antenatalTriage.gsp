@@ -212,13 +212,7 @@
 				
 				<div class="info-body" style="padding-bottom: 15px">
 					<div>
-						<label>Room to Visit</label>
-                        <label style="padding-left:0px; width: auto; cursor: pointer;">
-                            <input type="radio" name="send_for_examination" value="2d32b641-83ea-4cb5-be77-bc2b5c250b66">
-                            Post Abortal Care
-                        </label><br/>
-						
-						<label></label>
+						<label>Send Patient To</label>
                         <label style="padding-left:0px; width: auto; cursor: pointer;">
                             <input type="radio" name="send_for_examination" value="daea450b-4c2c-49ea-a241-afa152b52145">
                             Delivery Room
