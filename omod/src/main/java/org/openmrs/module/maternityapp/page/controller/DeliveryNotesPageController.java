@@ -60,7 +60,6 @@ public class DeliveryNotesPageController {
         model.addAttribute("externalReferrals", SimpleObject.fromCollection(Referral.getExternalReferralOptions(), ui, "label", "id", "uuid"));
         model.addAttribute("referralReasons", SimpleObject.fromCollection(ReferralReasons.getReferralReasonsOptions(), ui, "label", "id", "uuid"));
         model.addAttribute("babyStatusList",this.babyOutcomeStatus());
-
     }
 
    public String post(
@@ -83,7 +82,7 @@ public class DeliveryNotesPageController {
         } catch (java.text.ParseException e) {
             e.printStackTrace();
         }
-       return "redirect:" + ui.pageLinkWithoutContextPath("patientqueueapp", "maternityClinicQueue", null);
+       return "redirect:" + ui.pageLinkWithoutContextPath("patientqueueapp", "deliveryRoomQueue", null);
     }
 
     private Collection<ConceptAnswer> babyOutcomeStatus()

@@ -4,6 +4,7 @@
         NavigatorController = new KeyboardController();
 
         jq("#delivery-form-submit").on("click", function(){
+			alert('Submit');
             jq("#delivery-form").submit();
         });
 
@@ -20,7 +21,7 @@
     });
 </script>
 
-<form class="simple-form-ui" id="delivery-form">
+<form method="post" class="simple-form-ui" id="delivery-form">
     <section>
         <span class="title">Delivery Details</span>
         <input type="hidden" name="patientId" value="${patientId}" >
