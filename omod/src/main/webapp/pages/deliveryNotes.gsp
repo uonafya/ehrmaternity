@@ -11,6 +11,78 @@
     ui.includeJavascript("uicommons", "navigator/exitHandlers.js", Integer.MAX_VALUE - 22)
 %>
 
+<script>
+    var NavigatorController;
+	var emrMessages = {};
+	
+    emrMessages["requiredField"] = "Ensure Required Fields have been properly filled";
+	
+    jq(function () {
+		jq('.mother-details input').change(function(){
+			var sender = jq(this);
+			var select = jq('input[name="concept.160085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"]:checked').val();
+			
+			var timeOfDelivery = jq('#delivery-date-field').val();
+			var labourDuration = jq('#labour-duration').val();
+			var deliveryMode = jq('#delivery-mode').val();
+			var bloodLoss = jq('#blood-loss').val();
+			
+			if (timeOfDelivery=="" || labourDuration=="" || deliveryMode=="" || bloodLoss==""){
+				jq('#mother-details-set').val('');
+			}
+			else{
+				jq('#mother-details-set').val('SET');
+				jq('#mother-details-lbl').hide();
+			}
+			
+			if (sender.attr('name') == 'concept.160085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'){
+				if (select == '180BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB'){
+					jq('.death-audited-div').show(300);
+				}else{
+					jq('.death-audited-div').hide(300);
+					jq('#death-audit-date-field').val('');
+					jq('#death-audit-date-display').val('');
+				}
+			}
+		});
+		
+		jq('.baby-details input').change(function(){
+			var sender = jq(this);
+			
+			var birthOutcome = jq('#birth-outcome').val();
+			var apgarScore = jq('#apgar-score').val();
+			var bfInitiation = jq('input[name="concept.161543AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"]:checked').length;
+			var birthNotification = jq('#birth-notification-number').val();
+			
+			if (birthOutcome=="" || apgarScore=="" || birthNotification=="" || bfInitiation=="0"){
+				jq('#baby-details-set').val('');
+			}
+			else{
+				jq('#baby-details-set').val('SET');
+				jq('#baby-details-lbl').hide();
+			}			
+		});
+
+        jq("#delivery-form-submit").on("click", function(){
+            jq("#delivery-form").submit();
+        });
+
+        jq("field.patner-results").hide();
+
+        jq(".is-tested").on("click", function() {
+            var value = jq(this).data("value");
+            if (value == "yes") {
+                jq(this).closest("field").next("field.patner-results").show();
+            } else if (value == "no"){
+                jq(this).closest("field").next("field.patner-results").hide();
+            }
+        });
+		
+		
+        NavigatorController = new KeyboardController();
+    });
+</script>
+
 <style>
 	.toast-item {
 		background-color: #222;
@@ -157,19 +229,37 @@
 		text-decoration: none;
 	}
 
-	form label,
-	.form label {
+	form label{
 		display: inline-block;
 		padding-left: 10px;
 		width: 140px;
 	}
+	form .baby-details label,
+	form .mother-details label{
+		display: inline-block;
+		padding-left: 10px;
+		width: 175px;
+	}
 
-	form input,
-	form textarea,
-	.form input,
-	.form textarea {
+	form input[type="text"],
+	form textarea {
 		display: inline-block;
 		min-width: 70%;
+	}	
+	form input[type="radio"] {
+		cursor: pointer;
+		margin: 4px 5px 0 0;
+		-webkit-appearance: checkbox;
+		-moz-appearance: checkbox;
+		-ms-appearance: checkbox;
+	}
+	form input[type="checkbox"], .form input[type="checkbox"] {
+		margin-top: 4px;
+		cursor: pointer;
+	}
+	form input:focus, form select:focus, form textarea:focus, form ul.select:focus, .form input:focus, .form select:focus, .form textarea:focus, .form ul.select:focus {
+		outline: 2px none #007fff;
+		box-shadow: 0 0 1px 0 #ccc !important;
 	}
 
 	form select,
@@ -177,26 +267,77 @@
 	.form select,
 	.form ul.select {
 		display: inline-block;
-		min-width: 73%;
+		width: 70%;
 	}
-
 	#5596AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA label,
 	#1427AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA label {
 		display: none;
 	}
-
-	form input:focus, form select:focus, form textarea:focus, form ul.select:focus, .form input:focus, .form select:focus, .form textarea:focus, .form ul.select:focus {
-		outline: 2px none #007fff;
-		box-shadow: 0 0 1px 0 #ccc !important;
-	}
-
-	form input[type="checkbox"], .form input[type="checkbox"] {
-		margin-top: 4px;
-		cursor: pointer;
-	}
 	#modal-overlay {
 		background: #000 none repeat scroll 0 0;
 		opacity: 0.4 !important;
+	}
+	.simple-form-ui section, .simple-form-ui #confirmation, .simple-form-ui form section, .simple-form-ui form #confirmation {
+		background: #fff none repeat scroll 0 0;
+		width: 75.6%;
+	}
+	.simple-form-ui section fieldset select:focus, .simple-form-ui section fieldset input:focus, .simple-form-ui section #confirmationQuestion select:focus, .simple-form-ui section #confirmationQuestion input:focus, .simple-form-ui #confirmation fieldset select:focus, .simple-form-ui #confirmation fieldset input:focus, .simple-form-ui #confirmation #confirmationQuestion select:focus, .simple-form-ui #confirmation #confirmationQuestion input:focus, .simple-form-ui form section fieldset select:focus, .simple-form-ui form section fieldset input:focus, .simple-form-ui form section #confirmationQuestion select:focus, .simple-form-ui form section #confirmationQuestion input:focus, .simple-form-ui form #confirmation fieldset select:focus, .simple-form-ui form #confirmation fieldset input:focus, .simple-form-ui form #confirmation #confirmationQuestion select:focus, .simple-form-ui form #confirmation #confirmationQuestion input:focus{
+		outline: 0px none #007fff;
+	}	
+	.simple-form-ui .field-error, 
+	.simple-form-ui form .field-error {
+		border-bottom: 1px solid;
+		padding-left: 10px;
+		width: 93%;
+	}
+	span.required{
+		color: #ff0000;
+		float: right;
+		margin-right: 5px;
+	}
+	#delivery-date label{
+		display: none;
+	}
+	.onerow {
+		clear: both;
+		padding: 0 10px;
+	}
+	.testbox {
+		background-color: rgba(0, 0, 0, 0.01);
+		border: 1px solid rgba(51, 51, 51, 0.1);
+		margin: 0 0 15px 5px;
+		min-height: 130px;
+		width: 100%;
+	}
+	.testbox div {
+		background: #5b57a6 none repeat scroll 0 0;
+		border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+		color: #fff;
+		margin: -1px;
+		padding: 2px 15px;
+	}
+	.floating-controls {
+		margin-top: 5px;
+		padding: 0 !important;
+	}
+	.floating-controls input {
+		cursor: pointer;
+		float: none !important;
+	}
+	.floating-controls label {
+		cursor: pointer;
+	}
+	.floating-controls span {
+		color: #f26522;
+	}
+	.floating-controls textarea {
+		resize: none;
+	}
+	.info-header h3 {
+		color: #f26522;
+	}
+	.col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12 {
+		float: left;
 	}
 </style>
 
@@ -208,7 +349,7 @@
         <ul id="breadcrumbs">
             <li>
                 <a href="${ui.pageLink('referenceapplication', 'home')}">
-                    <i class="icon-home small"></i></a>
+                <i class="icon-home small"></i></a>
             </li>
 
             <li>
@@ -262,4 +403,289 @@
     </div>
 </div>
 
-${ui.includeFragment("maternityapp", "deliveryNotes", [patientId: patientId, queueId: queueId])}
+<form method="post" class="simple-form-ui" id="delivery-form">
+    <section>
+        <span class="title">Delivery Details</span>
+        <input type="hidden" name="patientId" value="${patientId}" >
+        <input type="hidden" name="queueId" value="${queueId}" >
+        <fieldset class="no-confirmation mother-details">
+            <legend>Details of Mother</legend>
+			<field>
+				<input type="hidden" id="mother-details-set" class="required" />
+				<span id="mother-details-lbl" class="field-error" style="display: none"></span>
+			</field>
+			
+            <div>
+				<label for="delivery-date-display">Time of Delivery<span class="required">*</span></label>
+				${ui.includeFragment("uicommons", "field/datetimepicker", [id: 'delivery-date', label: 'Time of Delivery', formFieldName: 'concept.5599AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', useTime: true, defaultToday: false, endToday: true])}
+            </div>
+			
+            <div>
+				<label for="labour-duration">Duration of Labour<span class="required">*</span></label>
+				<input type="text" id="labour-duration" name="" class="number numeric-range" value="">
+				<span class="append-to-value">Hrs</span>
+            </div>			
+			
+            <div>
+				<label for="delivery-mode">Mode of Delivery<span class="required">*</span></label>
+				<select id="delivery-mode" name="concept.a875ae0b-893c-47f8-9ebe-f721c8d0b130">
+					<option value="">- SELECT OPTION -</option>					
+					<% deliveryModesList.each{ %>
+						<option value="${it.uuid}">${it.value}</option>						
+					<% } %>
+				</select>
+            </div>
+			
+            <div>
+				<label for="blood-loss">Blood Loss<span class="required">*</span></label>
+				<input type="text" id="blood-loss" name="concept.161928AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="">
+				<span class="append-to-value">Mls</span>
+            </div>
+			
+            <div>
+				<label>Placenta Complete?</label>
+				<label style="padding-left:0px; width: auto; cursor: pointer">
+					<input type="radio" name="concept.163455AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+					Yes
+				</label><br/>
+				
+				<label>&nbsp;</label>
+				<label style="padding-left:0px; width: auto; cursor: pointer">
+					<input type="radio" name="concept.163455AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+					No
+				</label>
+            </div>			
+			
+            <div>
+				<label for="delivery-complications">Delivery Complications</label>
+				<select name="concept.144438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+					<option value="">- SELECT OPTION -</option>
+					<option value="">NO COMPLICATIONS</option>
+					<% deliveryComplicationsList.each{ %>
+						<option value="${it.uuid}">${it.value}</option>						
+					<% } %>
+				</select>
+            </div>
+			 
+            <div>
+				<label>Mother's Status</label>
+				<label style="padding-left:0px; width: auto; cursor: pointer">
+					<input type="radio" name="concept.160085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="160429AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+					Alive
+				</label><br/>
+				
+				<label>&nbsp;</label>
+				<label style="padding-left:0px; width: auto; cursor: pointer">
+					<input type="radio" name="concept.160085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="180BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB">
+					Dead
+				</label>
+            </div>
+			
+            <div class='death-audited-div' style="display: none">
+                ${ui.includeFragment("uicommons", "field/datetimepicker", [id: 'death-audit-date', label: 'Date Death Audited', formFieldName: 'concept.6bc8d241-3b81-4f45-bf94-2b92ac79e7d1', useTime: false, defaultToday: false, endToday: true])}
+            </div>
+			
+        </fieldset>
+		
+        <fieldset class="no-confirmation baby-details">
+            <legend>Details of Baby</legend>
+			<field>
+				<input type="hidden" id="baby-details-set" class="required" />
+				<span id="baby-details-lbl" class="field-error" style="display: none"></span>
+			</field>
+			
+			<div>
+				<label for="birth-outcome">Birth Outcome<span class="required">*</span></label>
+				<select id="birth-outcome" name="concept.159917AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+					<option value="">- SELECT OPTION -</option>
+					<% birthOutcomesList.each{ %>
+						<option value="${it.uuid}">${it.value}</option>						
+					<% } %>
+				</select>
+            </div>
+			
+            <div>
+                <label for="birth-notification-number">Birth Notification<span class="required">*</span></label>
+                <input id="birth-notification-number" type="text" name="" class="number numeric-range" value="" placeholder="Birth Notification Number">
+            </div>
+			
+            <div>
+                <label>Initiation of BF<span class="required">*</span></label>
+                <label style="padding-left:0px; width: auto; cursor: pointer">
+                    <input type="radio" name="concept.161543AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    Within 1 hour
+                </label><br/>
+				
+				<label>&nbsp;</label>
+                <label style="padding-left:0px; width: auto; cursor: pointer">
+                    <input type="radio" name="concept.161543AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    Not within the hour
+                </label>
+            </div>
+			
+            <div>
+                <label for="apgar-score">APGAR Score<span class="required">*</span></label>
+                <input type="text" id="apgar-score" name="concept.1504AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="" placeholder="APGAR Score">
+            </div>
+			
+            <div>
+                <label>Tetracycline at birth</label>
+                <label style="padding-left:0px; width: auto; cursor: pointer">
+                    <input type="radio" name="concept.a5d57f46-369e-4a7a-841f-5e8664fe014f" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    Given
+                </label><br/>
+				
+				<label>&nbsp;</label>
+                <label style="padding-left:0px; width: auto; cursor: pointer">
+                    <input type="radio" name="concept.a5d57f46-369e-4a7a-841f-5e8664fe014f" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    Not Given
+                </label>
+            </div>
+			
+            <div style="border-top: 1px solid #eee; margin-top: 6px;">
+                <label>Birth with deformities</label>
+                <label style="padding-left:0px; width: auto; cursor: pointer">
+                    <input type="radio" name="concept.d702ab4a-cc19-4d8a-b20f-2d481c720e58" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    Yes
+                </label><br/>
+				
+				<label>&nbsp;</label>
+                <label style="padding-left:0px; width: auto; cursor: pointer">
+                    <input type="radio" name="concept.d702ab4a-cc19-4d8a-b20f-2d481c720e58" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    No
+                </label>
+            </div>
+        </fieldset>
+    </section>
+	
+    <section>
+        <span class="title">Clinical Notes</span>
+        <fieldset class="no-confirmation">
+            <legend>PMTCT Information</legend>
+			
+			<div class="onerow floating-controls hiv-info">
+				<div class="col4" style="width: 33%; margin: 0 1% 0 0">
+					<div class="testbox">
+						<div>Prior Known Status</div>
+						<label>
+							<input id="prior-status-positive" type="radio" data-value="Positive" name="concept.1406dbf3-05da-4264-9659-fb688cea5809" value="7480ebef-125b-4e0d-a8e5-256224ee31a0">
+							Positive
+						</label><br/>
+
+						<label>
+							<input id="prior-status-negative" type="radio" data-value="Negative" name="concept.1406dbf3-05da-4264-9659-fb688cea5809" value="aca8224b-2f4b-46cb-b75d-9e532745d61f">
+							Negative
+						</label><br/>
+
+						<label>
+							<input id="prior-status-unknown" type="radio" data-value="Unknown" name="concept.1406dbf3-05da-4264-9659-fb688cea5809" value="ec8e61d3-e9c9-4020-9c62-8403e14af5af">
+							Unknown
+						</label>
+					</div>
+				</div>
+				
+				<div class="col4" style="width: 33%; margin: 0 1% 0 0">
+					<div class="testbox">
+						<div>HIV Tested in Maternity</div>
+						
+						<label>
+							<input id="couple-counselled" type="radio" data-value="Yes" name="concept.11724bb1-9033-457b-9b09-d4080f459f2f" value="4536f271-5430-4345-b5f7-37ca4cfe1553">
+							Yes
+						</label><br/>
+						
+						<label>
+							<input id="couple-counselled" type="radio" data-value="No" name="concept.11724bb1-9033-457b-9b09-d4080f459f2f" value="606720bb-4a7a-4c4c-b3b5-9a8e910758c9">
+							No
+						</label>
+					</div>
+				</div>
+				
+				<div class="col4 last" style="width: 32%;">
+					<div class="testbox anc-results">
+						<div>VDRL/RPR Results</div>
+						<label>
+							<input id="prior-status-positive" type="radio" data-value="Positive" name="concept.0a24f03e-9133-4401-b683-76c45e166912" value="7480ebef-125b-4e0d-a8e5-256224ee31a0">
+							Positive
+						</label><br/>
+
+						<label>
+							<input id="prior-status-negative" type="radio" data-value="Negative" name="concept.0a24f03e-9133-4401-b683-76c45e166912" value="aca8224b-2f4b-46cb-b75d-9e532745d61f">
+							Negative
+						</label><br/>
+
+						<label>
+							<input id="prior-status-unknown" type="radio" data-value="Unknown" name="concept.0a24f03e-9133-4401-b683-76c45e166912" value="ec8e61d3-e9c9-4020-9c62-8403e14af5af">
+							Unknown
+						</label>
+					</div>
+				</div>				
+			</div>			
+			<div class="clear"></div>
+			
+			
+			
+			
+			
+            
+           
+        </fieldset>
+        <fieldset class="no-confirmation">
+            <legend>Treatment</legend>
+            <field>
+                <label>Counselled on feeding options?</label>
+                <label style="padding-left:0px; width: auto;">
+                    <input type="radio" name="concept.fb5a5471-e912-4288-8c25-750f7f88281f" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    Yes
+                </label>
+                <label style="padding-left:0px; width: auto;">
+                    <input type="radio" name="concept.fb5a5471-e912-4288-8c25-750f7f88281f" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    No
+                </label>
+            </field>
+            <field>
+                <label>Vitamin A supplementation?</label>
+                <label style="padding-left:0px; width: auto;">
+                    <input type="radio" name="concept.c764e84f-cfb2-424a-acec-20e4fb8531b7" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    Yes
+                </label>
+                <label style="padding-left:0px; width: auto;">
+                    <input type="radio" name="concept.c764e84f-cfb2-424a-acec-20e4fb8531b7" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    No
+                </label>
+            </field>
+        </fieldset>
+        <fieldset>
+            <legend>Outcome</legend>
+            <field>
+                <label for="baby-status">Status of Baby</label>
+				<select name="concept.159926AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+					<option value="">Please select status of baby</option>
+					<option value="160429AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Alive</option>
+					<option value="159AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Dead</option>
+				</select>
+            </field>
+            <field>
+                <input type="hidden" id="referral-set" class=""/>
+                <span id="referral-lbl" class="field-error" style="display: none"></span>
+            </field>
+             ${ui.includeFragment("maternityapp", "refferalInformation")}
+        </fieldset>
+    </section>
+    <div id="confirmation" style="width:74.6%; min-height: 400px;">
+        <span id="confirmation_label" class="title">Confirmation</span>
+        <div id="confirmationQuestion" class="focused" style="margin-top:20px">
+            <field style="display: inline">
+                <button class="button submit confirm" style="display: none;"></button>
+            </field>
+            <span value="Submit" id="delivery-form-submit" class="button submit confirm" >
+                <i class="icon-save small"></i>
+                Save
+            </span>
+            
+            <span class="button cancel">
+                <i class="icon-remove small"></i>
+                Cancel
+            </span>
+        </div>
+    </div>
+</form>

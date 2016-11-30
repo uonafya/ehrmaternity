@@ -36,6 +36,10 @@ import java.util.List;
  * Created by franqq on 8/30/16.
  */
 public class DeliveryNotesPageController {
+    public static final String DELIVERY_MODES = "a875ae0b-893c-47f8-9ebe-f721c8d0b130";
+    public static final String DELIVERY_COMPLICATIONS = "144438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+    public static final String BIRTH_OUTCOMES = "159917AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+
     public void get(
             @RequestParam("patientId") Patient patient,
             @RequestParam(value = "queueId") Integer queueId,
@@ -51,6 +55,35 @@ public class DeliveryNotesPageController {
             model.addAttribute("gender", "Female");
         }
 
+        Concept birthOutcomesConcept = Context.getConceptService().getConceptByUuid(BIRTH_OUTCOMES);
+        Concept deliveryModesConcept = Context.getConceptService().getConceptByUuid(DELIVERY_MODES);
+        Concept deliveryComplicationsConcept = Context.getConceptService().getConceptByUuid(DELIVERY_COMPLICATIONS);
+
+        List<SimpleObject> birthOutcomesList = new ArrayList<SimpleObject>();
+        List<SimpleObject> deliveryModesList = new ArrayList<SimpleObject>();
+        List<SimpleObject> deliveryComplicationsList = new ArrayList<SimpleObject>();
+
+        for (ConceptAnswer answer : birthOutcomesConcept.getAnswers()) {
+            SimpleObject outcomes = new SimpleObject();
+            outcomes.put("value", answer.getAnswerConcept().getDisplayString().toUpperCase());
+            outcomes.put("uuid", answer.getAnswerConcept().getUuid());
+            birthOutcomesList.add(outcomes);
+        }
+
+        for (ConceptAnswer answer : deliveryModesConcept.getAnswers()) {
+            SimpleObject modes = new SimpleObject();
+            modes.put("value", answer.getAnswerConcept().getDisplayString().toUpperCase());
+            modes.put("uuid", answer.getAnswerConcept().getUuid());
+            deliveryModesList.add(modes);
+        }
+
+        for (ConceptAnswer answer : deliveryComplicationsConcept.getAnswers()) {
+            SimpleObject complications = new SimpleObject();
+            complications.put("value", answer.getAnswerConcept().getDisplayString().toUpperCase());
+            complications.put("uuid", answer.getAnswerConcept().getUuid());
+            deliveryComplicationsList.add(complications);
+        }
+
         HospitalCoreService hospitalCoreService = Context.getService(HospitalCoreService.class);
         model.addAttribute("previousVisit", hospitalCoreService.getLastVisitTime(patient));
         model.addAttribute("patientCategory", patient.getAttribute(14));
@@ -60,6 +93,9 @@ public class DeliveryNotesPageController {
         model.addAttribute("externalReferrals", SimpleObject.fromCollection(Referral.getExternalReferralOptions(), ui, "label", "id", "uuid"));
         model.addAttribute("referralReasons", SimpleObject.fromCollection(ReferralReasons.getReferralReasonsOptions(), ui, "label", "id", "uuid"));
         model.addAttribute("babyStatusList",this.babyOutcomeStatus());
+        model.addAttribute("birthOutcomesList", birthOutcomesList);
+        model.addAttribute("deliveryModesList", deliveryModesList);
+        model.addAttribute("deliveryComplicationsList", deliveryComplicationsList);
     }
 
    public String post(
