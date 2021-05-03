@@ -11,8 +11,8 @@ import org.openmrs.module.hospitalcore.PatientQueueService;
 import org.openmrs.module.hospitalcore.model.TriagePatientQueue;
 import org.openmrs.module.maternityapp.MaternityMetadata;
 import org.openmrs.module.maternityapp.api.MaternityService;
+import org.openmrs.module.mchapp.EhrMchMetadata;
 import org.openmrs.module.mchapp.InternalReferral;
-import org.openmrs.module.mchapp.MchMetadata;
 import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
 import org.openmrs.module.mchapp.api.parsers.QueueLogs;
@@ -45,8 +45,8 @@ public class TriagePageController {
 
         boolean enrolledInANC = mchService.enrolledInANC(patient);
 
-        model.addAttribute("patientProfile", PatientProfileGenerator.generatePatientProfile(patient, MchMetadata._MchProgram.ANC_PROGRAM));
-        model.addAttribute("patientHistoricalProfile", PatientProfileGenerator.generateHistoricalPatientProfile(patient, MchMetadata._MchProgram.ANC_PROGRAM));
+        model.addAttribute("patientProfile", PatientProfileGenerator.generatePatientProfile(patient, EhrMchMetadata._MchProgram.ANC_PROGRAM));
+        model.addAttribute("patientHistoricalProfile", PatientProfileGenerator.generateHistoricalPatientProfile(patient, EhrMchMetadata._MchProgram.ANC_PROGRAM));
 
         model.addAttribute("enrolledInAnc", enrolledInANC);
         model.addAttribute("previousVisit", hospitalCoreService.getLastVisitTime(patient));

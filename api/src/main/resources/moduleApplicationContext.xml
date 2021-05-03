@@ -19,14 +19,14 @@
 
 	<!-- Add here beans related to the API context -->
 	<bean id="maternityService"
-		  class="${project.parent.groupId}.${project.parent.artifactId}.api.impl.MaternityServiceImpl">
+		  class="org.openmrs.module.maternityapp.api.impl.MaternityServiceImpl">
 	</bean>
 
 	<!-- Services accessible via Context.getService() -->
 	<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
-				<value>${project.parent.groupId}.${project.parent.artifactId}.api.MaternityService</value>
+				<value>org.openmrs.module.maternityapp.api.MaternityService</value>
 				<ref local="maternityService" />
 			</list>
 		</property>
