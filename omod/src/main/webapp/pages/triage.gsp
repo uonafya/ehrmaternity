@@ -1,6 +1,7 @@
 <%
     ui.decorateWith("appui", "standardEmrPage", [title: "Maternity"])
-    ui.includeJavascript("billingui", "moment.js")
+    ui.includeJavascript("ehrcashier", "moment.js")
+    ui.includeCss("ehrconfigs", "referenceapplication.css")
 %>
 
 <style>
