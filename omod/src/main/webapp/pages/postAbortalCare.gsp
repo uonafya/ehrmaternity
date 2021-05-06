@@ -1,6 +1,7 @@
 <%
-    ui.decorateWith("appui", "standardEmrPage", [title: "Maternity"])
-    ui.includeJavascript("billingui", "moment.js")
+    ui.decorateWith("kenyaemr", "standardEmrPage", [title: "Maternity"])
+	ui.includeJavascript("ehrcashier", "moment.js")
+	ui.includeCss("ehrconfigs", "referenceapplication.css")
 %>
 
 <script>
@@ -305,16 +306,16 @@
                     <div style="margin-bottom: 0px">
                         <label>Extraction Done</label>
                         <label style="cursor: pointer; padding-left:0px; width: 60px;">
-                            <input type="radio" name="concept.159902AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="4536f271-5430-4345-b5f7-37ca4cfe1553" style="margin: 4px 5px 0 0;" />
+                            <input type="radio" name="concept.159902AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" style="margin: 4px 5px 0 0;" />
                             Yes
                         </label>
                         <label style="cursor: pointer; padding-left:0px; width: 60px;">
-                            <input type="radio" name="concept.159902AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="606720bb-4a7a-4c4c-b3b5-9a8e910758c9" style="margin: 4px 5px 0 0;" />
+                            <input type="radio" name="concept.159902AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" style="margin: 4px 5px 0 0;" />
                             No
                         </label>
                     </div>
                     <div>
-                        ${ui.includeFragment("uicommons", "field/datetimepicker", [formFieldName: 'concept.2d32b641-83ea-4cb5-be77-bc2b5c250b66', id: '2d32b641-83ea-4cb5-be77-bc2b5c250b66', label: 'Date', useTime: false, defaultToday: true, endDate: new Date()])}
+                        ${ui.includeFragment("uicommons", "field/datetimepicker", [formFieldName: 'concept.160753AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', id: '160753AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', label: 'Date', useTime: false, defaultToday: true, endDate: new Date()])}
                     </div>
 
                     <div>
