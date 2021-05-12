@@ -143,8 +143,8 @@
 				
                 <div class="info-body" style="margin-bottom: 20px; padding-bottom: 15px;">
                     <div>
-                        <label for="concept.b01ea470-b501-4943-9641-2033b594a6b8">Vagina Dilation</label>
-                        <input type="text" id="concept.b01ea470-b501-4943-9641-2033b594a6b8" name="concept.b01ea470-b501-4943-9641-2033b594a6b8" class="number numeric-range" value="">
+                        <label for="concept.162261AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Vagina Dilation</label>
+                        <input type="text" id="concept.162261AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" name="concept.162261AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="">
                         <span class="append-to-value">cm</span>
                         <span  class="field-error" style="display: none"></span>
                     </div>
@@ -184,8 +184,8 @@
                     </div>
 
                     <div>
-                        <label for="concept.278ad8be-c177-45a2-8d21-8f373280ca7e">Blood Sugar</label>
-                        <input type="text" id="concept.278ad8be-c177-45a2-8d21-8f373280ca7e" name="concept.278ad8be-c177-45a2-8d21-8f373280ca7e" class="number numeric-range" value="">
+                        <label for="concept.887AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Blood Sugar</label>
+                        <input type="text" id="concept.887AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" name="concept.887AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="">
                         <span class="append-to-value">mmol/L</span>
                         <span  class="field-error" style="display: none"></span>
                     </div>
@@ -219,7 +219,7 @@
                         </label><br/>
 
                         <label style="padding-left:0px; width: auto; cursor: pointer;">
-                            <input type="radio" name="send_for_examination" value="30d16838-9352-4e4e-a80e-a072135a0a65">
+                            <input type="radio" name="send_for_examination" value="57287737-988c-4fd1-a3a2-0e9d9a7dd15d">
                             PAC Room
                         </label><br/>
 						

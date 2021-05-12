@@ -336,7 +336,7 @@
 					<div>
 						<label>Send To: </label>
                         <label style="padding-left:0px; width: auto; cursor: pointer;">
-                            <input type="radio" name="send_for_examination" value="daea450b-4c2c-49ea-a241-afa152b52145">
+                            <input type="radio" name="send_for_examination" value="a6aacbbe-c897-456e-9818-48e45761ab02">
                             Send to Delivery Room
                         </label><br/>
 						
