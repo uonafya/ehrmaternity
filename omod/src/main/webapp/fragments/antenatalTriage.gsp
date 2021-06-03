@@ -214,7 +214,7 @@
 					<div>
 						<label>Send Patient To</label>
                         <label style="padding-left:0px; width: auto; cursor: pointer;">
-                            <input type="radio" name="send_for_examination" value="daea450b-4c2c-49ea-a241-afa152b52145">
+                            <input type="radio" name="send_for_examination" value="dff8dd54-e086-4ceb-bf47-09100354c9c2">
                             Delivery Room
                         </label><br/>
 
@@ -225,7 +225,7 @@
 						
 						<label></label>
 						<label style="padding-left:0px; width: auto; cursor: pointer;">
-                            <input type="radio" name="send_for_examination" value="7bda0f2c-585d-4671-8917-2c847f68d11b">
+                            <input type="radio" name="send_for_examination" value="90462a4e-a449-4c39-87b2-ddff230ec175">
                             Maternity Ward
                         </label>
 					</div>
