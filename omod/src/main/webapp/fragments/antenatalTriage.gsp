@@ -143,8 +143,8 @@
 				
                 <div class="info-body" style="margin-bottom: 20px; padding-bottom: 15px;">
                     <div>
-                        <label for="concept.15de567e-8112-4895-8f00-b7cb03031928">Vagina Dilation</label>
-                        <input type="text" id="concept.15de567e-8112-4895-8f00-b7cb03031928" name="concept.15de567e-8112-4895-8f00-b7cb03031928" class="number numeric-range" value="">
+                        <label for="concept.162261AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Vagina Dilation</label>
+                        <input type="text" id="concept.162261AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" name="concept.162261AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="">
                         <span class="append-to-value">cm</span>
                         <span  class="field-error" style="display: none"></span>
                     </div>
@@ -184,15 +184,15 @@
                     </div>
 
                     <div>
-                        <label for="concept.167785f7-52e6-46c1-b3a1-0f46e57a2209">Blood Sugar</label>
-                        <input type="text" id="concept.167785f7-52e6-46c1-b3a1-0f46e57a2209" name="concept.167785f7-52e6-46c1-b3a1-0f46e57a2209" class="number numeric-range" value="">
+                        <label for="concept.887AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">Blood Sugar</label>
+                        <input type="text" id="concept.887AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" name="concept.887AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="">
                         <span class="append-to-value">mmol/L</span>
                         <span  class="field-error" style="display: none"></span>
                     </div>
 
                     <div>
                         <label for="systolic">Blood Pressure</label>
-                        <input type="text" id="systolic" name="concept.6aa7eab2-138a-4041-a87f-00d9421492bc" class="number numeric-range" value=""  />
+                        <input type="text" id="systolic" name="concept.5085AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value=""  />
                         <span class="append-to-value">Systolic</span>
                         <span id="12485" class="field-error" style="display: none"></span>
                     </div>
@@ -214,13 +214,18 @@
 					<div>
 						<label>Send Patient To</label>
                         <label style="padding-left:0px; width: auto; cursor: pointer;">
-                            <input type="radio" name="send_for_examination" value="daea450b-4c2c-49ea-a241-afa152b52145">
+                            <input type="radio" name="send_for_examination" value="dff8dd54-e086-4ceb-bf47-09100354c9c2">
                             Delivery Room
+                        </label><br/>
+
+                        <label style="padding-left:0px; width: auto; cursor: pointer;">
+                            <input type="radio" name="send_for_examination" value="072ffde2-6515-41c9-9969-1b303241ba56">
+                            PAC Room
                         </label><br/>
 						
 						<label></label>
 						<label style="padding-left:0px; width: auto; cursor: pointer;">
-                            <input type="radio" name="send_for_examination" value="7bda0f2c-585d-4671-8917-2c847f68d11b">
+                            <input type="radio" name="send_for_examination" value="90462a4e-a449-4c39-87b2-ddff230ec175">
                             Maternity Ward
                         </label>
 					</div>

@@ -2,6 +2,7 @@
     ui.decorateWith("appui", "standardEmrPage", [title: "Maternity"])
     ui.includeJavascript("ehrcashier", "moment.js")
     ui.includeCss("ehrconfigs", "referenceapplication.css")
+
 %>
 
 <style>
