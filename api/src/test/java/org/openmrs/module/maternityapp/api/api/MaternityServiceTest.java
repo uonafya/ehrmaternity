@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.openmrs.Concept;
@@ -23,6 +24,7 @@ import java.util.Date;
 /**
  * Created by franqq on 8/31/16.
  */
+@Ignore
 public class MaternityServiceTest extends BaseModuleContextSensitiveTest {
     private Obs generateObs(Concept question, Concept answer) {
         Obs maternityObs = new Obs();
