@@ -12,7 +12,7 @@
 
     <developers>
         <developer>
-            <name>bespoke</name>
+            <name>HealthIT</name>
         </developer>
     </developers>
 
@@ -22,9 +22,10 @@
     </organization>
 
     <scm>
-        <connection>scm:svn:https://svn.openmrs.org/openmrs-modules/maternityapp/trunk/</connection>
-        <developerConnection>scm:svn:https://svn.openmrs.org/openmrs-modules/maternityapp/trunk/</developerConnection>
-        <url>https://svn.openmrs.org/openmrs-modules/maternityapp/trunk/</url>
+        <connection>scm:git:https://github.com/uonafya/ehrmaternity.git</connection>
+        <developerConnection>scm:git:https://github.com/uonafya/ehrmaternity.git</developerConnection>
+        <url>https://github.com/uonafya/ehrmaternity.git</url>
+        <tag>HEAD</tag>
     </scm>
 
     <modules>
