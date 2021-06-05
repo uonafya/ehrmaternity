@@ -61,7 +61,7 @@
 
             <div id="externalRefferalDiv" style="display: none">
                 <label> External Referral</label>
-                <select id="externalRefferal" name="concept.18b2b617-1631-457f-a36b-e593d948707f">
+                <select id="externalRefferal" name="concept.477a7484-0f99-4026-b37c-261be587a70b">
                     <option value="0">Select Option</option>
                     <% if (externalReferrals != null || externalReferrals != "") { %>
                     <% externalReferrals.each { externalReferral -> %>
@@ -84,7 +84,7 @@
         <div class="col4">
             <div id="externalRefferalRsn" style="display: none">
                 <label for="referralReason">Referral Reason</label>
-                <select id="referralReason" name="concept.cb2890d4-e3de-449a-9d34-c9f59e87945a">
+                <select id="referralReason" name="concept.1887AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                     <option value="0">Select Option</option>
                     <% if (referralReasons != null || referralReasons != "") { %>
                     <% referralReasons.each { referralReason -> %>
@@ -106,7 +106,7 @@
     <div class="onerow">
         <div id="externalRefferalCom" style="display: none">
             <label for="comments">Comment</label>
-            <textarea id="comments" name="comment.18b2b617-1631-457f-a36b-e593d948707f" style="width: 95.7%; resize: none;"></textarea>
+            <textarea id="comments" name="comment.477a7484-0f99-4026-b37c-261be587a70b" style="width: 95.7%; resize: none;"></textarea>
         </div>
     </div>
 

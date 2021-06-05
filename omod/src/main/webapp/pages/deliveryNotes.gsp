@@ -1,6 +1,7 @@
 <%
-    ui.decorateWith("appui", "standardEmrPage", [title: "Maternity"])
-    ui.includeJavascript("billingui", "moment.js")
+	ui.decorateWith("kenyaemr", "standardEmrPage", [title: "Maternity"])
+	ui.includeJavascript("ehrcashier", "moment.js")
+	ui.includeCss("ehrconfigs", "referenceapplication.css")
 
     ui.includeJavascript("uicommons", "handlebars/handlebars.min.js", Integer.MAX_VALUE - 1)
     ui.includeJavascript("uicommons", "navigator/validators.js", Integer.MAX_VALUE - 19)
@@ -428,7 +429,7 @@
 			
             <div>
 				<label for="delivery-mode">Mode of Delivery<span class="required">*</span></label>
-				<select id="delivery-mode" name="concept.a875ae0b-893c-47f8-9ebe-f721c8d0b130">
+				<select id="delivery-mode" name="concept.159775AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
 					<option value="">- SELECT OPTION -</option>					
 					<% deliveryModesList.each{ %>
 						<option value="${it.uuid}">${it.value}</option>						
@@ -482,7 +483,7 @@
             </div>
 			
             <div class='death-audited-div' style="display: none">
-                ${ui.includeFragment("uicommons", "field/datetimepicker", [id: 'death-audit-date', label: 'Date Death Audited', formFieldName: 'concept.6bc8d241-3b81-4f45-bf94-2b92ac79e7d1', useTime: false, defaultToday: false, endToday: true])}
+                ${ui.includeFragment("uicommons", "field/datetimepicker", [id: 'death-audit-date', label: 'Date Death Audited', formFieldName: 'concept.b7db90da-b845-4726-a39e-8ab6632281cf', useTime: false, defaultToday: false, endToday: true])}
             </div>
 			
         </fieldset>
@@ -531,13 +532,13 @@
             <div>
                 <label>Tetracycline at birth</label>
                 <label style="padding-left:0px; width: auto; cursor: pointer">
-                    <input type="radio" name="concept.a5d57f46-369e-4a7a-841f-5e8664fe014f" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    <input type="radio" name="concept.112d5f03-8f9d-450b-bfc2-00ac13d96dd8" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                     Given
                 </label><br/>
 				
 				<label>&nbsp;</label>
                 <label style="padding-left:0px; width: auto; cursor: pointer">
-                    <input type="radio" name="concept.a5d57f46-369e-4a7a-841f-5e8664fe014f" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    <input type="radio" name="concept.112d5f03-8f9d-450b-bfc2-00ac13d96dd8" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                     Not Given
                 </label>
             </div>
@@ -545,13 +546,13 @@
             <div style="border-top: 1px solid #eee; margin-top: 6px;">
                 <label>Birth with deformities</label>
                 <label style="padding-left:0px; width: auto; cursor: pointer">
-                    <input type="radio" name="concept.d702ab4a-cc19-4d8a-b20f-2d481c720e58" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    <input type="radio" name="concept.0285b54b-8ad8-46ae-a537-fe179c7ebadd" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                     Yes
                 </label><br/>
 				
 				<label>&nbsp;</label>
                 <label style="padding-left:0px; width: auto; cursor: pointer">
-                    <input type="radio" name="concept.d702ab4a-cc19-4d8a-b20f-2d481c720e58" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    <input type="radio" name="concept.0285b54b-8ad8-46ae-a537-fe179c7ebadd" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                     No
                 </label>
             </div>
@@ -568,17 +569,17 @@
 					<div class="testbox">
 						<div>Prior Known Status</div>
 						<label>
-							<input id="prior-status-positive" type="radio" data-value="Positive" name="concept.1406dbf3-05da-4264-9659-fb688cea5809" value="7480ebef-125b-4e0d-a8e5-256224ee31a0">
+							<input id="prior-status-positive" type="radio" data-value="Positive" name="concept.86f816e4-d093-4e8e-93e3-be2a98c264ac" value="703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
 							Positive
 						</label><br/>
 
 						<label>
-							<input id="prior-status-negative" type="radio" data-value="Negative" name="concept.1406dbf3-05da-4264-9659-fb688cea5809" value="aca8224b-2f4b-46cb-b75d-9e532745d61f">
+							<input id="prior-status-negative" type="radio" data-value="Negative" name="concept.86f816e4-d093-4e8e-93e3-be2a98c264ac" value="664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
 							Negative
 						</label><br/>
 
 						<label>
-							<input id="prior-status-unknown" type="radio" data-value="Unknown" name="concept.1406dbf3-05da-4264-9659-fb688cea5809" value="ec8e61d3-e9c9-4020-9c62-8403e14af5af">
+							<input id="prior-status-unknown" type="radio" data-value="Unknown" name="concept.86f816e4-d093-4e8e-93e3-be2a98c264ac" value="1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
 							Unknown
 						</label>
 					</div>
@@ -589,12 +590,12 @@
 						<div>HIV Tested in Maternity</div>
 						
 						<label>
-							<input id="couple-counselled" type="radio" data-value="Yes" name="concept.11724bb1-9033-457b-9b09-d4080f459f2f" value="4536f271-5430-4345-b5f7-37ca4cfe1553">
+							<input id="couple-counselled" type="radio" data-value="Yes" name="concept.e51dfd50-8e09-4202-815c-ddcb9d5cad8a" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
 							Yes
 						</label><br/>
 						
 						<label>
-							<input id="couple-counselled" type="radio" data-value="No" name="concept.11724bb1-9033-457b-9b09-d4080f459f2f" value="606720bb-4a7a-4c4c-b3b5-9a8e910758c9">
+							<input id="couple-counselled" type="radio" data-value="No" name="concept.e51dfd50-8e09-4202-815c-ddcb9d5cad8a" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
 							No
 						</label>
 					</div>
@@ -604,17 +605,17 @@
 					<div class="testbox anc-results">
 						<div>VDRL/RPR Results</div>
 						<label>
-							<input id="prior-status-positive" type="radio" data-value="Positive" name="concept.0a24f03e-9133-4401-b683-76c45e166912" value="7480ebef-125b-4e0d-a8e5-256224ee31a0">
+							<input id="prior-status-positive" type="radio" data-value="Positive" name="concept.299AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
 							Positive
 						</label><br/>
 
 						<label>
-							<input id="prior-status-negative" type="radio" data-value="Negative" name="concept.0a24f03e-9133-4401-b683-76c45e166912" value="aca8224b-2f4b-46cb-b75d-9e532745d61f">
+							<input id="prior-status-negative" type="radio" data-value="Negative" name="concept.299AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="664AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
 							Negative
 						</label><br/>
 
 						<label>
-							<input id="prior-status-unknown" type="radio" data-value="Unknown" name="concept.0a24f03e-9133-4401-b683-76c45e166912" value="ec8e61d3-e9c9-4020-9c62-8403e14af5af">
+							<input id="prior-status-unknown" type="radio" data-value="Unknown" name="concept.299AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
 							Unknown
 						</label>
 					</div>
@@ -634,22 +635,22 @@
             <field>
                 <label>Counselled on feeding options?</label>
                 <label style="padding-left:0px; width: auto;">
-                    <input type="radio" name="concept.fb5a5471-e912-4288-8c25-750f7f88281f" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    <input type="radio" name="concept.5526AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                     Yes
                 </label>
                 <label style="padding-left:0px; width: auto;">
-                    <input type="radio" name="concept.fb5a5471-e912-4288-8c25-750f7f88281f" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    <input type="radio" name="concept.5526AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                     No
                 </label>
             </field>
             <field>
                 <label>Vitamin A supplementation?</label>
                 <label style="padding-left:0px; width: auto;">
-                    <input type="radio" name="concept.c764e84f-cfb2-424a-acec-20e4fb8531b7" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    <input type="radio" name="concept.161534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                     Yes
                 </label>
                 <label style="padding-left:0px; width: auto;">
-                    <input type="radio" name="concept.c764e84f-cfb2-424a-acec-20e4fb8531b7" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+                    <input type="radio" name="concept.161534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
                     No
                 </label>
             </field>
