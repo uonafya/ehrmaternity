@@ -36,7 +36,7 @@ import java.util.List;
  * Created by franqq on 8/30/16.
  */
 public class DeliveryNotesPageController {
-    public static final String DELIVERY_MODES = "159775AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+    public static final String DELIVERY_MODES = "5630AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
     public static final String DELIVERY_COMPLICATIONS = "144438AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
     public static final String BIRTH_OUTCOMES = "159917AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 
