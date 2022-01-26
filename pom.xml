@@ -3,7 +3,7 @@
 
     <groupId>org.openmrs.module</groupId>
     <artifactId>maternityapp</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Maternity App Module Module</name>
     <description>Openmrs module to help trach maternity visits</description>
