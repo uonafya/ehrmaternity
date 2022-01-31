@@ -1,7 +1,6 @@
 package org.openmrs.module.maternityapp.page.controller;
 
 import org.apache.commons.lang.StringUtils;
-import org.openmrs.ConceptAnswer;
 import org.openmrs.Encounter;
 import org.openmrs.Patient;
 import org.openmrs.api.context.Context;
@@ -24,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 /**
- * Created by franqq on 8/30/16.
+ * HealthIT
  */
 public class TriagePageController {
     public void get(

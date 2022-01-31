@@ -3,6 +3,7 @@ package org.openmrs.module.maternityapp.page.controller;
 import org.apache.commons.lang.StringUtils;
 import org.openmrs.Encounter;
 import org.openmrs.Patient;
+import org.openmrs.PersonAttributeType;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.appui.UiSessionContext;
 import org.openmrs.module.hospitalcore.HospitalCoreService;
@@ -13,6 +14,7 @@ import org.openmrs.module.maternityapp.api.MaternityService;
 import org.openmrs.module.mchapp.InternalReferral;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
 import org.openmrs.module.mchapp.api.parsers.QueueLogs;
+import org.openmrs.module.metadatadeploy.MetadataUtils;
 import org.openmrs.ui.framework.UiUtils;
 import org.openmrs.ui.framework.page.PageModel;
 import org.openmrs.ui.framework.page.PageRequest;
@@ -36,10 +38,10 @@ public class PostAbortalCarePageController {
         } else {
             model.addAttribute("gender", "Female");
         }
-
+        PersonAttributeType personAttributeType = MetadataUtils.existing(PersonAttributeType.class, "09cd268a-f0f5-11ea-99a8-b3467ddbf779");
         HospitalCoreService hospitalCoreService = Context.getService(HospitalCoreService.class);
         model.addAttribute("previousVisit", hospitalCoreService.getLastVisitTime(patient));
-        model.addAttribute("patientCategory", patient.getAttribute(14));
+        model.addAttribute("patientCategory", patient.getAttribute(personAttributeType));
         model.addAttribute("patientId", patient.getPatientId());
         model.addAttribute("title","Post Abortal Care");
 
