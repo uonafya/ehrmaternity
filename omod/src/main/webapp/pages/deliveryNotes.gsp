@@ -340,6 +340,18 @@
 	.col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12 {
 		float: left;
 	}
+	.form-horizontal{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	form section>*nth-child(1){
+       display: flex;
+		flex-wrap: wrap;
+	}
+	form section>*nth-child(2){
+		display: flex;
+		flex-wrap: wrap;
+	}
 </style>
 
 
@@ -405,7 +417,7 @@
 </div>
 
 <form method="post" class="simple-form-ui" id="delivery-form">
-    <section>
+    <section class="form-horizontal">
         <span class="title">Delivery Details</span>
         <input type="hidden" name="patientId" value="${patientId}" >
         <input type="hidden" name="queueId" value="${queueId}" >
@@ -559,7 +571,7 @@
         </fieldset>
     </section>
 	
-    <section>
+    <section class="form-horizontal">
         <span class="title">Clinical Notes</span>
         <fieldset class="no-confirmation">
             <legend>PMTCT Information</legend>

@@ -2,29 +2,26 @@ package org.openmrs.module.maternityapp.page.controller;
 
 import org.openmrs.Concept;
 import org.openmrs.ConceptAnswer;
-import org.openmrs.ConceptClass;
 import org.openmrs.Encounter;
 import org.openmrs.Patient;
+import org.openmrs.PersonAttributeType;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.appui.UiSessionContext;
 import org.openmrs.module.hospitalcore.HospitalCoreService;
 import org.openmrs.module.hospitalcore.PatientQueueService;
 import org.openmrs.module.hospitalcore.model.OpdPatientQueue;
+import org.openmrs.module.hospitalcore.model.Referral;
+import org.openmrs.module.hospitalcore.model.ReferralReasons;
 import org.openmrs.module.maternityapp.MaternityMetadata;
 import org.openmrs.module.maternityapp.api.MaternityService;
 import org.openmrs.module.mchapp.InternalReferral;
-import org.openmrs.module.mchapp.api.MchService;
 import org.openmrs.module.mchapp.api.model.ClinicalForm;
 import org.openmrs.module.mchapp.api.parsers.QueueLogs;
-import org.openmrs.module.patientdashboardapp.model.Referral;
-import org.openmrs.module.patientdashboardapp.model.ReferralReasons;
+import org.openmrs.module.metadatadeploy.MetadataUtils;
 import org.openmrs.ui.framework.SimpleObject;
 import org.openmrs.ui.framework.UiUtils;
 import org.openmrs.ui.framework.page.PageModel;
 import org.openmrs.ui.framework.page.PageRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.expression.ParseException;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
@@ -33,7 +30,7 @@ import java.util.List;
 
 
 /**
- * Created by franqq on 8/30/16.
+ * HealthIT
  */
 public class DeliveryNotesPageController {
     public static final String DELIVERY_MODES = "5630AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
@@ -83,10 +80,10 @@ public class DeliveryNotesPageController {
             complications.put("uuid", answer.getAnswerConcept().getUuid());
             deliveryComplicationsList.add(complications);
         }
-
+        PersonAttributeType personAttributeType = MetadataUtils.existing(PersonAttributeType.class, "09cd268a-f0f5-11ea-99a8-b3467ddbf779");
         HospitalCoreService hospitalCoreService = Context.getService(HospitalCoreService.class);
         model.addAttribute("previousVisit", hospitalCoreService.getLastVisitTime(patient));
-        model.addAttribute("patientCategory", patient.getAttribute(14));
+        model.addAttribute("patientCategory", patient.getAttribute(personAttributeType));
         model.addAttribute("patientId", patient.getPatientId());
         model.addAttribute("title","Delivery Notes");
         model.addAttribute("internalReferrals", SimpleObject.fromCollection(Referral.getInternalReferralOptions(), ui, "label", "id", "uuid"));
