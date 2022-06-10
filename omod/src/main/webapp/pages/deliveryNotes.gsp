@@ -525,11 +525,21 @@
             </div>
 			
             <div>
-                <label for="apgar-score">APGAR Score<span class="required">*</span></label>
-                <input type="text" id="apgar-score" name="concept.1504AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="" placeholder="APGAR Score">
+                <label>APGAR Score<span class="required">*</span></label>
+			</div>
+               <div>
+				<label for="apgar-score1">At 1 Minute<span class="required">*</span></label>
+				<input type="text" id="apgar-score1" name="concept.1504AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="" placeholder="APGAR Score at 1">
+			   </div>
+			    <div>
+				<label for="apgar-score5">At 5 Minutes<span class="required">*</span></label>
+				<input type="text" id="apgar-score5" name="concept.1504AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="" placeholder="APGAR Score at 5">
+                </div>
+			    <div>
+				<label for="apgar-score10">At 10 Minutes<span class="required">*</span></label>
+				<input type="text" id="apgar-score10" name="concept.1504AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="" placeholder="APGAR Score at 10">
             </div>
-			
-            <div>
+			<div>
                 <label>Tetracycline at birth</label>
                 <label style="padding-left:0px; width: auto; cursor: pointer">
                     <input type="radio" name="concept.112d5f03-8f9d-450b-bfc2-00ac13d96dd8" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
@@ -622,12 +632,6 @@
 				</div>				
 			</div>			
 			<div class="clear"></div>
-			
-			
-			
-			
-			
-            
            
         </fieldset>
         <fieldset class="no-confirmation">
@@ -654,6 +658,17 @@
                     No
                 </label>
             </field>
+			<field>
+				<label>Vitamin k supplementation?</label>
+				<label style="padding-right:0px; width: auto;">
+					<input type="radio" name="concept.161534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+					Yes
+				</label>
+				<label style="padding-right:0px; width: auto;">
+					<input type="radio" name="concept.161534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+					No
+				</label>
+			</field>
         </fieldset>
         <fieldset>
             <legend>Outcome</legend>
