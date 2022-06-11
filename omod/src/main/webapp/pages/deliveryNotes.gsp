@@ -523,22 +523,19 @@
                     Not within the hour
                 </label>
             </div>
-			
-            <div>
-                <label>APGAR Score<span class="required">*</span></label>
+			<br>
+			<div>
+				<label for="birth-notification-number">APGAR Score at 1<span class="required">*</span></label>
+				<input type="number" name="" class="number numeric-range" value="" placeholder="score value">
 			</div>
-               <div>
-				<label for="apgar-score1">At 1 Minute<span class="required">*</span></label>
-				<input type="text" id="apgar-score1" name="concept.1504AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="" placeholder="APGAR Score at 1">
-			   </div>
-			    <div>
-				<label for="apgar-score5">At 5 Minutes<span class="required">*</span></label>
-				<input type="text" id="apgar-score5" name="concept.1504AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="" placeholder="APGAR Score at 5">
-                </div>
-			    <div>
-				<label for="apgar-score10">At 10 Minutes<span class="required">*</span></label>
-				<input type="text" id="apgar-score10" name="concept.1504AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" class="number numeric-range" value="" placeholder="APGAR Score at 10">
-            </div>
+			<div>
+				<label for="birth-notification-number">APGAR Score at 5<span class="required">*</span></label>
+				<input type="number" name="" class="number numeric-range" value="" placeholder="score value">
+			</div>
+			<div>
+				<label for="birth-notification-number">APGAR Score at 10<span class="required">*</span></label>
+				<input type="number" name="" class="number numeric-range" value="" placeholder="score value">
+			</div>
 			<div>
                 <label>Tetracycline at birth</label>
                 <label style="padding-left:0px; width: auto; cursor: pointer">
@@ -633,44 +630,61 @@
 			</div>			
 			<div class="clear"></div>
            
-        </fieldset>
-        <fieldset class="no-confirmation">
-            <legend>Treatment</legend>
-            <field>
-                <label>Counselled on feeding options?</label>
-                <label style="padding-left:0px; width: auto;">
-                    <input type="radio" name="concept.5526AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
-                    Yes
-                </label>
-                <label style="padding-left:0px; width: auto;">
-                    <input type="radio" name="concept.5526AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
-                    No
-                </label>
-            </field>
-            <field>
-                <label>Vitamin A supplementation?</label>
-                <label style="padding-left:0px; width: auto;">
-                    <input type="radio" name="concept.161534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
-                    Yes
-                </label>
-                <label style="padding-left:0px; width: auto;">
-                    <input type="radio" name="concept.161534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
-                    No
-                </label>
-            </field>
-			<field>
-				<label>Vitamin k supplementation?</label>
-				<label style="padding-right:0px; width: auto;">
-					<input type="radio" name="concept.161534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
-					Yes
-				</label>
-				<label style="padding-right:0px; width: auto;">
-					<input type="radio" name="concept.161534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
-					No
-				</label>
-			</field>
-        </fieldset>
-        <fieldset>
+        </fieldset>	
+			<fieldset class="no-confirmation">
+				<legend>Treatment</legend>
+				<div class="onerow floating-controls hiv-info">
+					<div class="col4" style="width: 40%; margin: 0 1% 0 0">
+						<div class="testbox">
+							<div>Counselled on feeding options?</div>
+							<label>
+								<input type="radio" name="concept.5526AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+								Yes
+							</label>
+							<br>
+							<label>
+								<input type="radio" name="concept.5526AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+								No
+							</label>
+						</div>			
+					</div>
+
+					<div class="onerow floating-controls hiv-info">
+						<div class="col4" style="width: 30%; margin: 0 1% 0 0">
+							<div class="testbox">						
+								<div>Vitamin A supplementation?</div>
+								<label>
+									<input type="radio" name="concept.161534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+									Yes
+								</label>
+									<br>
+								<label>
+									<input type="radio" name="concept.161534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+									No
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="onerow floating-controls hiv-info">
+						<div class="col4" style="width: 30%; margin: 0 1% 0 0">
+							<div class="testbox">
+								<div>Vitamin k supplementation?</div>
+								<label>
+									<input type="radio" name="concept.161534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+									Yes
+								</label>
+									<br>
+								<label>
+									<input type="radio" name="concept.161534AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" value="1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+									No
+								</label>
+						</div>
+					</div>
+				</div>	
+				<div class="clear"></div>
+			</fieldset>   
+	    <fieldset>
             <legend>Outcome</legend>
             <field>
                 <label for="baby-status">Status of Baby</label>
