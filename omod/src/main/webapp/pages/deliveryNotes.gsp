@@ -10,7 +10,9 @@
     ui.includeJavascript("uicommons", "navigator/navigatorTemplates.js", Integer.MAX_VALUE - 21)
     ui.includeJavascript("uicommons", "navigator/exitHandlers.js", Integer.MAX_VALUE - 22)
 %>
+
 <script>
+
     var NavigatorController;
     var emrMessages = {};
 
@@ -454,10 +456,12 @@ span.required {
             </div>
 
             <div>
+
                 <label for="blood-loss">Blood Loss<span class="required">*</span></label>
                 <input type="text" id="blood-loss" name="concept.161928AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
                        class="number numeric-range" value="">
                 <span class="append-to-value">Liters</span>
+
             </div>
 
             <div>
@@ -549,6 +553,7 @@ span.required {
                     Not within the hour
                 </label>
             </div>
+
             <br>
 
             <div>
@@ -570,6 +575,7 @@ span.required {
                 <label for="birth-notification-number">Baby Weight <span class="required">*</span></label>
                 <input type="number" name="" class="number numeric-range" value="" placeholder="kgs">
             </div>
+
 
             <div>
                 <label>Tetracycline at birth</label>
@@ -741,6 +747,7 @@ span.required {
             </div>
 
             <div class="clear"></div>
+
         </fieldset>
 
         <fieldset>
